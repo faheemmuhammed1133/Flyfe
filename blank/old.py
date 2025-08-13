@@ -1,0 +1,78 @@
+prompt = f"""
+        You are an MCQ extractor.
+
+      Process only pages {start_page} through {end_page} of the attached PDF document.
+      Extract all multiple-choice questions from this page range and return them as a JSON array.
+      Also, look for an answer key section within this page range and use it to determine the correct answers.
+      
+      Each item in the array should include the following keys:
+            - "SI.No": A serial number for the question.
+            - "question": The full question, formatted as an HTML string. 
+                - Wrap the main question in ⁠ <p> ⁠.
+                - If there are any statements (e.g., Statement I, II, etc.), include them inside the same HTML block with appropriate formatting.
+                - If the question is a 'Match-the-Column' type, include both List I and List II inside the HTML, using ⁠ <ul> ⁠, ⁠ <li> ⁠, or ⁠ <table> ⁠ as needed.
+            - "options": An array of strings, where each string is an option (e.g., ["Option 1", "Option 2"]).
+            - "correct_answer": The CHAR identifier of the correct option (e.g., C), if provided in the answer key or generate according to question (Should not be null or anything , Mandatory!). there should only be answers as ["A", "B", "C", "D"].
+            - "type": One of ['MCQ', 'Order-based', 'Match-the-Column'].
+            - "category": One of the following, determined by analyzing the content of the question(if no category is matching, then generate a new category):
+                * History
+                * Geography
+                * Economics
+                * Indian Constitution
+                * Kerala – Governance and System of Administration
+                * Life Science and Public Health
+                * Physics
+                * Chemistry
+                * Arts, Literature, Culture, Sports
+                * Basics of Computer
+                * Important Acts
+                * Current Affairs
+                * Simple Arithmetic, Mental Ability and Reasoning
+                * General English
+                * Malayalam language
+            - "Solution": The solution/explanation to the answer of the question (Mandatory!). Should be detailed, precise, and clearly elaborated. 
+            Must explain the logic or reasoning behind the correct answer using relevant facts or concepts. Also include explanations for why the other options are incorrect, referencing related facts or ideas. Add any necessary shortcuts, formulas, or code snippets where applicable.
+
+            example : 
+            [
+               {    {
+                    "SI.No": 13,
+                    "question": "<p>A pilot is used to land on wide runways only. When approaching a smaller and/ or narrower runway, the pilot may feel he is at:</p>",
+                    "options": [
+                        "Greater height than he actually is with the tendency to land short.",
+                        "Greater height and the impression of landing short.",
+                        "Lower than actual height with the tendency to overshoot."
+                    ],
+                    "correct_answer": "A",
+                    "type": "MCQ",
+                    "category": "Life Science and Public Health",
+                    "Solution": """This is a well-known visual illusion in aviation. 
+                    A narrower-than-usual runway makes the pilot perceive that they are 
+                    higher than their actual altitude. To correct this perceived height, 
+                    the pilot may fly a lower approach, which creates a dangerous 
+                    tendency to land short of the runway threshold."""
+                    }
+                }
+            ]
+   
+      Important formatting notes:
+      - Include all contextual parts (statements, match-the-columns, etc.) *within the HTML in the "question" field*.
+      - For questions with multiple statements, format them inside the HTML using ⁠ <ul> ⁠ or ⁠ <p> ⁠ tags as appropriate.
+      - For match-the-column questions, display List I and List II in a clear, structured HTML format like a table or two lists.
+      
+      Note:
+      - *Handling Broken Questions*: If a question near the end of the page range (page {end_page}) appears incomplete, you are permitted to look at the beginning of the next page to find the rest of the question or its options. You must assemble the complete question.
+      - Correct any spelling or grammar issues in the extracted questions or statements based on context.
+      - Ensure the output is a valid JSON array and properly structured.
+      - Create questions or options (max 4), and statements on broken questions Only- if contextually applicable and the chances to be created in the next or previous batches is lower (context is much higher in this batch), some other instructions are given below:
+            - Avoid Answer Keys: You must differentiate between the primary question list and any separate "Answer Key" or "Solutions" sections. Do NOT generate questions from these sections.
+            - Pattern to Ignore: An "Answer Key" or "Solutions" section is typically characterized by a list format (e.g., 1. C, 2. A) followed by explanations, but it lacks the full, original question text and the list of options (A, B, C, D). If you encounter text that matches this pattern, you must ignore it to prevent creating fragmented or duplicate questions.
+      - if any questions happen to repeat , ignore it , (only ignore the questions with same purpose, not similar)
+      
+      Questions to ignore (if any):
+      {questions_to_ignore}
+
+      These questions should not be reprocessed.
+
+      Now, process the document provided and extract the questions.
+        """
