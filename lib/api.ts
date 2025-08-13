@@ -1,4 +1,152 @@
-// Base API configuration and utilities
+import axios, { AxiosInstance, AxiosError, InternalAxiosRequestConfig } from 'axios';
+
+// Base API Client Configuration
+const apiClient: AxiosInstance = axios.create({
+  baseURL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api/v1',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
+
+// Interceptor to add the auth token to requests
+apiClient.interceptors.request.use((config: InternalAxiosRequestConfig) => {
+  if (typeof window !== 'undefined') {
+    const token = localStorage.getItem('flyfe_token');
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+  }
+  return config;
+});
+
+// Interceptor to handle API errors globally
+apiClient.interceptors.response.use(
+  (response) => response.data,
+  (error: AxiosError) => {
+    console.error('API Error:', error.response?.data || error.message);
+    // You can add more robust error handling here, e.g., showing a toast notification
+    return Promise.reject(error.response?.data || error);
+  }
+);
+
+export { apiClient };
+
+// --- TYPE DEFINITIONS ---
+
+export interface PaginatedResponse<T> {
+  data: T[];
+  total: number;
+  page: number;
+  limit: number;
+  totalPages: number;
+}
+
+export interface User {
+  id: string;
+  email: string;
+  firstName: string;
+  lastName: string;
+  role: 'ADMIN' | 'CUSTOMER';
+  avatarUrl?: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface ProductImage {
+  id: string;
+  url: string;
+  altText?: string;
+}
+
+export interface Brand {
+  id: string;
+  name: string;
+  logoUrl?: string;
+}
+
+export interface Category {
+  id: string;
+  name: string;
+  slug: string;
+  parentId?: string;
+}
+
+export interface Product {
+  id: string;
+  name: string;
+  slug: string;
+  description: string;
+  price: number;
+  salePrice?: number;
+  sku: string;
+  stock: number;
+  isFeatured: boolean;
+  images: ProductImage[];
+  brand: Brand;
+  category: Category;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface CartItem {
+  id: string;
+  quantity: number;
+  price: number; // Price at the time of adding to cart
+  product: Product;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface WishlistItem {
+  id: string;
+  product: Product;
+  createdAt: string;
+}
+
+export interface OrderItem {
+  id: string;
+  quantity: number;
+  price: number;
+  product: Product;
+}
+
+export interface Order {
+  id: string;
+  status: 'PENDING' | 'PROCESSING' | 'SHIPPED' | 'DELIVERED' | 'CANCELLED';
+  total: number;
+  items: OrderItem[];
+  shippingAddress: Address;
+  createdAt: string;
+}
+
+export interface Review {
+  id: string;
+  rating: number;
+  comment?: string;
+  title?: string;
+  user: User;
+  createdAt: string;
+}
+
+export interface Payment {
+  id: string;
+  amount: number;
+  status: 'PENDING' | 'SUCCEEDED' | 'FAILED';
+  provider: 'STRIPE' | 'PAYPAL';
+  transactionId: string;
+  createdAt: string;
+}
+
+export interface Address {
+  id: string;
+  street: string;
+  city: string;
+  state: string;
+  zipCode: string;
+  country: string;
+  isDefault: boolean;
+}
+
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api/v1';
 
 export interface ApiResponse<T> {
