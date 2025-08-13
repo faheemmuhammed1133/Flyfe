@@ -1,169 +1,6 @@
-import axios, { AxiosInstance, AxiosError, InternalAxiosRequestConfig } from 'axios';
-
-// Base API Client Configuration
-const apiClient: AxiosInstance = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api/v1',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-});
-
-// Interceptor to add the auth token to requests
-apiClient.interceptors.request.use((config: InternalAxiosRequestConfig) => {
-  if (typeof window !== 'undefined') {
-    const token = localStorage.getItem('flyfe_token');
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
-    }
-  }
-  return config;
-});
-
-// Interceptor to handle API errors globally
-apiClient.interceptors.response.use(
-  (response) => response.data,
-  (error: AxiosError) => {
-    console.error('API Error:', error.response?.data || error.message);
-    // You can add more robust error handling here, e.g., showing a toast notification
-    return Promise.reject(error.response?.data || error);
-  }
-);
-
-export { apiClient };
-
-// --- TYPE DEFINITIONS ---
-
-export interface PaginatedResponse<T> {
-  data: T[];
-  total: number;
-  page: number;
-  limit: number;
-  totalPages: number;
-}
-
-export interface User {
-  id: string;
-  email: string;
-  firstName: string;
-  lastName: string;
-  role: 'ADMIN' | 'CUSTOMER';
-  avatarUrl?: string;
-  createdAt: string;
-  updatedAt: string;
-}
-
-export interface ProductImage {
-  id: string;
-  url: string;
-  altText?: string;
-}
-
-export interface Brand {
-  id: string;
-  name: string;
-  logoUrl?: string;
-}
-
-export interface Category {
-  id: string;
-  name: string;
-  slug: string;
-  parentId?: string;
-}
-
-export interface Product {
-  id: string;
-  name: string;
-  slug: string;
-  description: string;
-  price: number;
-  salePrice?: number;
-  sku: string;
-  stock: number;
-  isFeatured: boolean;
-  images: ProductImage[];
-  brand: Brand;
-  category: Category;
-  createdAt: string;
-  updatedAt: string;
-}
-
-export interface CartItem {
-  id: string;
-  quantity: number;
-  price: number; // Price at the time of adding to cart
-  product: Product;
-  createdAt: string;
-  updatedAt: string;
-}
-
-export interface WishlistItem {
-  id: string;
-  product: Product;
-  createdAt: string;
-}
-
-export interface OrderItem {
-  id: string;
-  quantity: number;
-  price: number;
-  product: Product;
-}
-
-export interface Order {
-  id: string;
-  status: 'PENDING' | 'PROCESSING' | 'SHIPPED' | 'DELIVERED' | 'CANCELLED';
-  total: number;
-  items: OrderItem[];
-  shippingAddress: Address;
-  createdAt: string;
-}
-
-export interface Review {
-  id: string;
-  rating: number;
-  comment?: string;
-  title?: string;
-  user: User;
-  createdAt: string;
-}
-
-export interface Payment {
-  id: string;
-  amount: number;
-  status: 'PENDING' | 'SUCCEEDED' | 'FAILED';
-  provider: 'STRIPE' | 'PAYPAL';
-  transactionId: string;
-  createdAt: string;
-}
-
-export interface Address {
-  id: string;
-  street: string;
-  city: string;
-  state: string;
-  zipCode: string;
-  country: string;
-  isDefault: boolean;
-}
-
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api/v1';
 
-export interface ApiResponse<T> {
-  data: T;
-  message?: string;
-  error?: string;
-}
-
-export interface PaginatedResponse<T> {
-  data: T[];
-  pagination: {
-    page: number;
-    limit: number;
-    total: number;
-    pages: number;
-  };
-}
+// --- API CLIENT (fetch-based) ---
 
 class ApiClient {
   private baseURL: string;
@@ -171,7 +8,6 @@ class ApiClient {
 
   constructor(baseURL: string) {
     this.baseURL = baseURL;
-    // Initialize token from localStorage if available
     if (typeof window !== 'undefined') {
       this.token = localStorage.getItem('flyfe_token');
     }
@@ -203,7 +39,7 @@ class ApiClient {
     };
 
     if (this.token) {
-      headers.Authorization = `Bearer ${this.token}`;
+      (headers as any).Authorization = `Bearer ${this.token}`;
     }
 
     const config: RequestInit = {
@@ -215,12 +51,14 @@ class ApiClient {
       const response = await fetch(url, config);
       
       if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        throw new Error(errorData.message || `HTTP ${response.status}: ${response.statusText}`);
+        const errorData = await response.json().catch(() => ({ message: `HTTP ${response.status}: ${response.statusText}` }));
+        throw new Error(errorData.message);
       }
 
-      const data = await response.json();
-      return data;
+      // Handle cases where response might be empty
+      const text = await response.text();
+      return text ? JSON.parse(text) : {} as T;
+
     } catch (error) {
       console.error(`API Request failed: ${endpoint}`, error);
       throw error;
@@ -232,24 +70,15 @@ class ApiClient {
   }
 
   async post<T>(endpoint: string, data?: any): Promise<T> {
-    return this.request<T>(endpoint, {
-      method: 'POST',
-      body: data ? JSON.stringify(data) : undefined,
-    });
+    return this.request<T>(endpoint, { method: 'POST', body: data ? JSON.stringify(data) : undefined });
   }
 
   async put<T>(endpoint: string, data?: any): Promise<T> {
-    return this.request<T>(endpoint, {
-      method: 'PUT',
-      body: data ? JSON.stringify(data) : undefined,
-    });
+    return this.request<T>(endpoint, { method: 'PUT', body: data ? JSON.stringify(data) : undefined });
   }
 
   async patch<T>(endpoint: string, data?: any): Promise<T> {
-    return this.request<T>(endpoint, {
-      method: 'PATCH',
-      body: data ? JSON.stringify(data) : undefined,
-    });
+    return this.request<T>(endpoint, { method: 'PATCH', body: data ? JSON.stringify(data) : undefined });
   }
 
   async delete<T>(endpoint: string): Promise<T> {
@@ -259,7 +88,24 @@ class ApiClient {
 
 export const apiClient = new ApiClient(API_BASE_URL);
 
-// API Response Types
+// --- TYPE DEFINITIONS ---
+
+export interface ApiResponse<T> {
+  data: T;
+  message?: string;
+  error?: string;
+}
+
+export interface PaginatedResponse<T> {
+  data: T[];
+  pagination: {
+    page: number;
+    limit: number;
+    total: number;
+    pages: number;
+  };
+}
+
 export interface User {
   id: string;
   email: string;
@@ -329,6 +175,7 @@ export interface CartItem {
   id: string;
   productId: string;
   quantity: number;
+  price: number; // Price at the time of adding to cart
   product: Product;
   createdAt: string;
   updatedAt: string;
@@ -407,3 +254,4 @@ export interface Payment {
   createdAt: string;
   updatedAt: string;
 }
+
