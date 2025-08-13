@@ -117,11 +117,38 @@ export default function TestWorkflowPage() {
                 </Link>
               </motion.div>
 
-              {/* Checkout Flow */}
+              {/* Shopping Cart Page */}
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
+                className="bg-charcoal border border-dark-gray p-6 hover:border-luxury-gold transition-all duration-300"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-luxury-gold/20 rounded-full flex items-center justify-center">
+                    <ShoppingBag className="text-luxury-gold" size={24} />
+                  </div>
+                  <h3 className="text-xl font-montserrat font-bold text-white">Shopping Cart</h3>
+                </div>
+                <p className="text-gray-400 mb-4">
+                  Full cart page with item management, quantity controls, and order summary
+                </p>
+                <Link href="/cart">
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="luxury-button w-full flex items-center justify-center gap-2"
+                  >
+                    View Cart <ArrowRight size={16} />
+                  </motion.button>
+                </Link>
+              </motion.div>
+
+              {/* Checkout Flow */}
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
                 className="bg-charcoal border border-dark-gray p-6 hover:border-luxury-gold transition-all duration-300"
               >
                 <div className="flex items-center gap-3 mb-4">
@@ -140,6 +167,33 @@ export default function TestWorkflowPage() {
                     className="luxury-button w-full flex items-center justify-center gap-2"
                   >
                     Test Checkout <ArrowRight size={16} />
+                  </motion.button>
+                </Link>
+              </motion.div>
+
+              {/* Wishlist Page */}
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                className="bg-charcoal border border-dark-gray p-6 hover:border-luxury-gold transition-all duration-300"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-luxury-gold/20 rounded-full flex items-center justify-center">
+                    <Heart className="text-luxury-gold" size={24} />
+                  </div>
+                  <h3 className="text-xl font-montserrat font-bold text-white">Wishlist</h3>
+                </div>
+                <p className="text-gray-400 mb-4">
+                  Full-page wishlist with sorting, filtering, grid/list views, and bulk actions
+                </p>
+                <Link href="/wishlist">
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="luxury-button w-full flex items-center justify-center gap-2"
+                  >
+                    View Wishlist <ArrowRight size={16} />
                   </motion.button>
                 </Link>
               </motion.div>
@@ -233,6 +287,10 @@ export default function TestWorkflowPage() {
                 </div>
               </div>
               
+              <li className="flex items-center gap-3">
+                <Heart className="text-luxury-gold" size={20} />
+                <span>Click the heart icon in header → Navigate to wishlist page</span>
+              </li>
               <div className="text-center mt-8">
                 <p className="text-gray-400 mb-4">
                   All components are fully connected with proper navigation and state management

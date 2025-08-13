@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Montserrat, Poppins } from 'next/font/google'
 import './globals.css'
 import { CartProvider } from '@/contexts/CartContext'
+import { WishlistProvider } from '@/contexts/WishlistContext'
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -91,7 +92,11 @@ export default function RootLayout({
       </head>
       <body className={`${poppins.className} bg-luxury-black text-white antialiased`}>
         <div id="portal-root" />
-        {children}
+        <CartProvider>
+          <WishlistProvider>
+            {children}
+          </WishlistProvider>
+        </CartProvider>
       </body>
     </html>
   )

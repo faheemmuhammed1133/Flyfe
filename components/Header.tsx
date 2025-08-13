@@ -6,15 +6,18 @@ import Link from 'next/link'
 import { ShoppingBag, Search, Menu, X, User, Heart } from 'lucide-react'
 import ShoppingCart from './ShoppingCart'
 import UserAuth from './UserAuth'
-import Wishlist from './Wishlist'
+import { useCart } from '@/contexts/CartContext'
+import { useWishlist } from '@/contexts/WishlistContext'
+import { useRouter } from 'next/navigation'
 
 const Header = () => {
+  const { state } = useCart()
+  const { state: wishlistState } = useWishlist()
+  const router = useRouter()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
-  const [cartCount, setCartCount] = useState(3) // Demo cart count
   const [isCartOpen, setIsCartOpen] = useState(false)
   const [isAuthOpen, setIsAuthOpen] = useState(false)
-  const [isWishlistOpen, setIsWishlistOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -103,11 +106,20 @@ const Header = () => {
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => setIsWishlistOpen(true)}
-              className="p-2 text-white hover:text-luxury-gold transition-colors duration-300"
+              onClick={() => router.push('/wishlist')}
+              className="p-2 text-white hover:text-luxury-gold transition-colors duration-300 relative"
               aria-label="Wishlist"
             >
               <Heart size={20} />
+              {wishlistState.totalItems > 0 && (
+                <motion.span
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  className="absolute -top-2 -right-2 bg-luxury-gold text-luxury-black text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center"
+                >
+                  {wishlistState.totalItems}
+                </motion.span>
+              )}
             </motion.button>
 
             {/* User Account */}
@@ -130,13 +142,13 @@ const Header = () => {
               aria-label="Shopping Cart"
             >
               <ShoppingBag size={20} />
-              {cartCount > 0 && (
+              {state.totalItems > 0 && (
                 <motion.span
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
-                  className="absolute -top-1 -right-1 bg-luxury-gold text-luxury-black text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center"
+                  className="absolute -top-2 -right-2 bg-luxury-gold text-luxury-black text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center"
                 >
-                  {cartCount}
+                  {state.totalItems}
                 </motion.span>
               )}
             </motion.button>
@@ -195,8 +207,7 @@ const Header = () => {
       {/* User Authentication Modal */}
       <UserAuth isOpen={isAuthOpen} onClose={() => setIsAuthOpen(false)} />
       
-      {/* Wishlist Sidebar */}
-      <Wishlist isOpen={isWishlistOpen} onClose={() => setIsWishlistOpen(false)} />
+
     </motion.header>
   )
 }
