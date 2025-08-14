@@ -32,9 +32,9 @@ const Newsletter = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="inline-flex items-center justify-center w-16 h-16 bg-luxury-gold/10 rounded-full mb-8"
+          className="inline-flex items-center justify-center w-16 h-16 bg-premium-gold/10 rounded-full mb-8"
         >
-          <Sparkles className="text-luxury-gold" size={32} />
+          <Sparkles className="text-premium-gold" size={32} />
         </motion.div>
 
         {/* Heading */}
@@ -46,7 +46,7 @@ const Newsletter = () => {
           className="text-4xl md:text-5xl font-montserrat font-bold text-white mb-6"
         >
           Stay in the 
-          <span className="text-luxury-gold"> Loop</span>
+          <span className="text-premium-gold"> Loop</span>
         </motion.h2>
 
         {/* Description */}
@@ -58,7 +58,7 @@ const Newsletter = () => {
           className="text-xl text-gray-300 font-poppins mb-12 max-w-2xl mx-auto leading-relaxed"
         >
           Be the first to discover our exclusive collections, limited editions, 
-          and receive insider access to luxury deals.
+          and receive insider access to premium deals.
         </motion.p>
 
         {!isSubscribed ? (
@@ -77,7 +77,7 @@ const Newsletter = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email address"
-                className="w-full pl-12 pr-4 py-4 bg-luxury-black border border-dark-gray text-white placeholder-gray-400 focus:border-luxury-gold focus:ring-1 focus:ring-luxury-gold transition-all duration-300 outline-none"
+                className="w-full pl-12 pr-4 py-4 bg-premium-black border border-dark-gray text-white placeholder-gray-400 focus:border-premium-gold focus:ring-1 focus:ring-premium-gold transition-all duration-300 outline-none"
                 required
               />
             </div>
@@ -87,13 +87,13 @@ const Newsletter = () => {
               disabled={isLoading}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
-              className="luxury-button px-8 py-4 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="premium-button px-8 py-4 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isLoading ? (
                 <motion.div
                   animate={{ rotate: 360 }}
                   transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
-                  className="w-5 h-5 border-2 border-luxury-black border-t-transparent rounded-full"
+                  className="w-5 h-5 border-2 border-premium-black border-t-transparent rounded-full"
                 />
               ) : (
                 <>
@@ -110,13 +110,13 @@ const Newsletter = () => {
             transition={{ duration: 0.6 }}
             className="text-center"
           >
-            <div className="inline-flex items-center gap-3 bg-luxury-gold/10 border border-luxury-gold/30 rounded-full px-8 py-4 mb-4">
-              <div className="w-6 h-6 bg-luxury-gold rounded-full flex items-center justify-center">
+            <div className="inline-flex items-center gap-3 bg-premium-gold/10 border border-premium-gold/30 rounded-full px-8 py-4 mb-4">
+              <div className="w-6 h-6 bg-premium-gold rounded-full flex items-center justify-center">
                 <motion.svg
                   initial={{ pathLength: 0 }}
                   animate={{ pathLength: 1 }}
                   transition={{ duration: 0.5 }}
-                  className="w-4 h-4 text-luxury-black"
+                  className="w-4 h-4 text-premium-black"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -124,7 +124,7 @@ const Newsletter = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </motion.svg>
               </div>
-              <span className="text-luxury-gold font-poppins font-semibold">
+              <span className="text-premium-gold font-poppins font-semibold">
                 Successfully Subscribed!
               </span>
             </div>
@@ -149,11 +149,11 @@ const Newsletter = () => {
             },
             {
               title: 'Special Offers',
-              description: 'Subscriber-only discounts and luxury deals'
+              description: 'Subscriber-only discounts and premium deals'
             },
             {
               title: 'Style Insights',
-              description: 'Expert tips and luxury lifestyle content'
+              description: 'Expert tips and premium lifestyle content'
             }
           ].map((benefit, index) => (
             <motion.div
@@ -164,7 +164,7 @@ const Newsletter = () => {
               viewport={{ once: true }}
               className="text-center"
             >
-              <h3 className="text-luxury-gold font-poppins font-semibold mb-2 text-lg">
+              <h3 className="text-premium-gold font-poppins font-semibold mb-2 text-lg">
                 {benefit.title}
               </h3>
               <p className="text-gray-400 font-poppins text-sm leading-relaxed">

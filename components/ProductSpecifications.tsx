@@ -64,7 +64,7 @@ const ProductSpecifications = ({
       transition={{ duration: 0.4, delay: index * 0.05 }}
       className="flex items-start gap-3 py-2"
     >
-      <div className="w-2 h-2 bg-luxury-gold rounded-full mt-2 flex-shrink-0" />
+      <div className="w-2 h-2 bg-premium-gold rounded-full mt-2 flex-shrink-0" />
       <span className="text-gray-300 font-poppins leading-relaxed">{feature}</span>
     </motion.li>
   )
@@ -97,15 +97,15 @@ const ProductSpecifications = ({
             viewport={{ once: true }}
             className="flex flex-wrap justify-center mb-8"
           >
-            <div className="flex bg-luxury-black border border-dark-gray rounded-none overflow-hidden">
+            <div className="flex bg-premium-black border border-dark-gray rounded-none overflow-hidden">
               {tabs.map((tab) => (
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id as any)}
                   className={`flex items-center gap-2 px-6 py-3 font-poppins font-medium transition-all duration-300 ${
                     activeTab === tab.id
-                      ? 'bg-luxury-gold text-luxury-black'
-                      : 'text-gray-300 hover:text-luxury-gold hover:bg-luxury-gold/10'
+                      ? 'bg-premium-gold text-premium-black'
+                      : 'text-gray-300 hover:text-premium-gold hover:bg-premium-gold/10'
                   }`}
                 >
                   <tab.icon size={16} />
@@ -123,11 +123,11 @@ const ProductSpecifications = ({
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
-              className="bg-luxury-black border border-dark-gray p-8 rounded-none"
+              className="bg-premium-black border border-dark-gray p-8 rounded-none"
             >
               {activeTab === 'specs' && (
                 <div>
-                  <h3 className="text-xl font-montserrat font-semibold text-luxury-gold mb-6">
+                  <h3 className="text-xl font-montserrat font-semibold text-premium-gold mb-6">
                     Technical Specifications
                   </h3>
                   <div className="space-y-0">
@@ -143,7 +143,7 @@ const ProductSpecifications = ({
                   
                   {materials.length > 0 && (
                     <div className="mt-8">
-                      <h4 className="text-lg font-montserrat font-semibold text-luxury-gold mb-4">
+                      <h4 className="text-lg font-montserrat font-semibold text-premium-gold mb-4">
                         Materials
                       </h4>
                       <div className="flex flex-wrap gap-3">
@@ -153,7 +153,7 @@ const ProductSpecifications = ({
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.3, delay: index * 0.1 }}
-                            className="bg-charcoal border border-luxury-gold/30 text-luxury-gold px-4 py-2 rounded-none text-sm font-medium"
+                            className="bg-charcoal border border-premium-gold/30 text-premium-gold px-4 py-2 rounded-none text-sm font-medium"
                           >
                             {material}
                           </motion.span>
@@ -166,7 +166,7 @@ const ProductSpecifications = ({
 
               {activeTab === 'features' && (
                 <div>
-                  <h3 className="text-xl font-montserrat font-semibold text-luxury-gold mb-6">
+                  <h3 className="text-xl font-montserrat font-semibold text-premium-gold mb-6">
                     Key Features
                   </h3>
                   <ul className="space-y-0">
@@ -179,7 +179,7 @@ const ProductSpecifications = ({
 
               {activeTab === 'care' && (
                 <div>
-                  <h3 className="text-xl font-montserrat font-semibold text-luxury-gold mb-6">
+                  <h3 className="text-xl font-montserrat font-semibold text-premium-gold mb-6">
                     Care Instructions
                   </h3>
                   <ul className="space-y-0 mb-8">
@@ -188,8 +188,8 @@ const ProductSpecifications = ({
                     ))}
                   </ul>
                   
-                  <div className="bg-charcoal border border-luxury-gold/30 p-6 rounded-none">
-                    <h4 className="text-lg font-montserrat font-semibold text-luxury-gold mb-3">
+                  <div className="bg-charcoal border border-premium-gold/30 p-6 rounded-none">
+                    <h4 className="text-lg font-montserrat font-semibold text-premium-gold mb-3">
                       Warranty Information
                     </h4>
                     <p className="text-gray-300 font-poppins leading-relaxed">
@@ -201,7 +201,7 @@ const ProductSpecifications = ({
 
               {activeTab === 'shipping' && (
                 <div>
-                  <h3 className="text-xl font-montserrat font-semibold text-luxury-gold mb-6">
+                  <h3 className="text-xl font-montserrat font-semibold text-premium-gold mb-6">
                     Shipping Options
                   </h3>
                   
@@ -214,8 +214,8 @@ const ProductSpecifications = ({
                         transition={{ duration: 0.4, delay: index * 0.1 }}
                         className="flex items-start gap-4 p-4 bg-charcoal border border-dark-gray rounded-none"
                       >
-                        <div className="w-10 h-10 bg-luxury-gold/10 rounded-full flex items-center justify-center flex-shrink-0">
-                          <Truck className="text-luxury-gold" size={18} />
+                        <div className="w-10 h-10 bg-premium-gold/10 rounded-full flex items-center justify-center flex-shrink-0">
+                          <Truck className="text-premium-gold" size={18} />
                         </div>
                         <div>
                           <h4 className="text-white font-poppins font-semibold mb-2 capitalize">
@@ -229,21 +229,21 @@ const ProductSpecifications = ({
                     ))}
                   </div>
 
-                  <div className="mt-8 p-6 bg-luxury-gold/10 border border-luxury-gold/30 rounded-none">
-                    <h4 className="text-luxury-gold font-montserrat font-semibold mb-3">
+                  <div className="mt-8 p-6 bg-premium-gold/10 border border-premium-gold/30 rounded-none">
+                    <h4 className="text-premium-gold font-montserrat font-semibold mb-3">
                       Free Shipping Benefits
                     </h4>
                     <ul className="space-y-2">
                       <li className="flex items-center gap-3 text-gray-300">
-                        <div className="w-1.5 h-1.5 bg-luxury-gold rounded-full" />
+                        <div className="w-1.5 h-1.5 bg-premium-gold rounded-full" />
                         Free standard shipping on orders over $500
                       </li>
                       <li className="flex items-center gap-3 text-gray-300">
-                        <div className="w-1.5 h-1.5 bg-luxury-gold rounded-full" />
+                        <div className="w-1.5 h-1.5 bg-premium-gold rounded-full" />
                         Complimentary gift wrapping for all orders
                       </li>
                       <li className="flex items-center gap-3 text-gray-300">
-                        <div className="w-1.5 h-1.5 bg-luxury-gold rounded-full" />
+                        <div className="w-1.5 h-1.5 bg-premium-gold rounded-full" />
                         Signature delivery with tracking included
                       </li>
                     </ul>
@@ -259,7 +259,7 @@ const ProductSpecifications = ({
               {
                 id: 'authenticity',
                 title: 'Authenticity Guarantee',
-                content: 'Every Flyfe product comes with a certificate of authenticity. Our luxury items are sourced directly from authorized dealers and undergo rigorous quality checks to ensure you receive only genuine, premium products.',
+                content: 'Every Flyfe product comes with a certificate of authenticity. Our premium items are sourced directly from authorized dealers and undergo rigorous quality checks to ensure you receive only genuine, premium products.',
                 icon: Shield
               },
               {
@@ -275,21 +275,21 @@ const ProductSpecifications = ({
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-luxury-black border border-dark-gray rounded-none overflow-hidden"
+                className="bg-premium-black border border-dark-gray rounded-none overflow-hidden"
               >
                 <button
                   onClick={() => toggleSection(section.id)}
                   className="w-full flex items-center justify-between p-6 text-left hover:bg-charcoal/50 transition-colors duration-300"
                 >
                   <div className="flex items-center gap-3">
-                    <section.icon className="text-luxury-gold" size={20} />
+                    <section.icon className="text-premium-gold" size={20} />
                     <h4 className="text-white font-montserrat font-semibold">
                       {section.title}
                     </h4>
                   </div>
                   <ChevronDown
                     size={20}
-                    className={`text-luxury-gold transform transition-transform duration-300 ${
+                    className={`text-premium-gold transform transition-transform duration-300 ${
                       expandedSections.has(section.id) ? 'rotate-180' : ''
                     }`}
                   />

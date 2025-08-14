@@ -205,7 +205,7 @@ const ProductCatalog = ({ category, searchQuery }: ProductCatalogProps) => {
         {/* Product Badges */}
         <div className="absolute top-4 left-4 z-10 flex flex-col gap-2">
           {product.isNew && (
-            <span className="bg-luxury-gold text-luxury-black px-3 py-1 text-xs font-bold uppercase tracking-wide">
+            <span className="bg-premium-gold text-premium-black px-3 py-1 text-xs font-bold uppercase tracking-wide">
               New
             </span>
           )}
@@ -224,7 +224,7 @@ const ProductCatalog = ({ category, searchQuery }: ProductCatalogProps) => {
             e.preventDefault()
             e.stopPropagation()
           }}
-          className="absolute top-4 right-4 z-10 p-2 bg-luxury-black/70 backdrop-blur-sm rounded-full text-white hover:text-luxury-gold hover:bg-luxury-gold/20 transition-all duration-300 opacity-0 group-hover:opacity-100"
+          className="absolute top-4 right-4 z-10 p-2 bg-premium-black/70 backdrop-blur-sm rounded-full text-white hover:text-premium-gold hover:bg-premium-gold/20 transition-all duration-300 opacity-0 group-hover:opacity-100"
         >
           <Heart size={16} />
         </motion.button>
@@ -244,7 +244,7 @@ const ProductCatalog = ({ category, searchQuery }: ProductCatalogProps) => {
           <motion.div
             initial={{ opacity: 0 }}
             whileHover={{ opacity: 1 }}
-            className="absolute inset-0 bg-luxury-black/50 flex items-center justify-center transition-opacity duration-300"
+            className="absolute inset-0 bg-premium-black/50 flex items-center justify-center transition-opacity duration-300"
           >
             <motion.button
               initial={{ scale: 0, opacity: 0 }}
@@ -255,7 +255,7 @@ const ProductCatalog = ({ category, searchQuery }: ProductCatalogProps) => {
                 e.preventDefault()
                 e.stopPropagation()
               }}
-              className="luxury-button px-6 py-3 flex items-center gap-2"
+              className="premium-button px-6 py-3 flex items-center gap-2"
             >
               <ShoppingBag size={16} />
               Quick Add
@@ -267,7 +267,7 @@ const ProductCatalog = ({ category, searchQuery }: ProductCatalogProps) => {
         <div className={`${viewMode === 'list' ? 'flex-1' : 'p-6'}`}>
           {/* Brand & Category */}
           <div className="flex items-center justify-between mb-2">
-            <span className="text-luxury-gold text-xs font-poppins font-medium tracking-wider uppercase">
+            <span className="text-premium-gold text-xs font-poppins font-medium tracking-wider uppercase">
               {product.brand}
             </span>
             <span className="text-gray-500 text-xs uppercase">
@@ -283,7 +283,7 @@ const ProductCatalog = ({ category, searchQuery }: ProductCatalogProps) => {
                 size={14}
                 className={`${
                   i < Math.floor(product.rating)
-                    ? 'text-luxury-gold fill-current'
+                    ? 'text-premium-gold fill-current'
                     : 'text-gray-600'
                 }`}
               />
@@ -294,7 +294,7 @@ const ProductCatalog = ({ category, searchQuery }: ProductCatalogProps) => {
           </div>
 
           {/* Product Name */}
-          <h3 className="font-poppins font-semibold text-white mb-4 group-hover:text-luxury-gold transition-colors duration-300 text-lg leading-tight line-clamp-2">
+          <h3 className="font-poppins font-semibold text-white mb-4 group-hover:text-premium-gold transition-colors duration-300 text-lg leading-tight line-clamp-2">
             {product.name}
           </h3>
 
@@ -315,7 +315,7 @@ const ProductCatalog = ({ category, searchQuery }: ProductCatalogProps) => {
 
           {/* Price */}
           <div className="flex items-center gap-3">
-            <span className="text-luxury-gold font-bold text-xl">
+            <span className="text-premium-gold font-bold text-xl">
               ${product.price.toLocaleString()}
             </span>
             {product.originalPrice && (
@@ -338,7 +338,7 @@ const ProductCatalog = ({ category, searchQuery }: ProductCatalogProps) => {
             {category ? `${category} Collection` : 'All Products'}
           </h1>
           <p className="text-gray-300 font-poppins">
-            {filteredProducts.length} luxury items found
+            {filteredProducts.length} premium items found
           </p>
         </div>
 
@@ -349,8 +349,8 @@ const ProductCatalog = ({ category, searchQuery }: ProductCatalogProps) => {
               onClick={() => setViewMode('grid')}
               className={`p-3 transition-all duration-300 ${
                 viewMode === 'grid'
-                  ? 'bg-luxury-gold text-luxury-black'
-                  : 'text-gray-300 hover:text-luxury-gold'
+                  ? 'bg-premium-gold text-premium-black'
+                  : 'text-gray-300 hover:text-premium-gold'
               }`}
             >
               <Grid size={16} />
@@ -359,8 +359,8 @@ const ProductCatalog = ({ category, searchQuery }: ProductCatalogProps) => {
               onClick={() => setViewMode('list')}
               className={`p-3 transition-all duration-300 ${
                 viewMode === 'list'
-                  ? 'bg-luxury-gold text-luxury-black'
-                  : 'text-gray-300 hover:text-luxury-gold'
+                  ? 'bg-premium-gold text-premium-black'
+                  : 'text-gray-300 hover:text-premium-gold'
               }`}
             >
               <List size={16} />
@@ -371,7 +371,7 @@ const ProductCatalog = ({ category, searchQuery }: ProductCatalogProps) => {
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value as any)}
-            className="bg-charcoal border border-dark-gray text-white px-4 py-3 rounded-none focus:border-luxury-gold focus:outline-none"
+            className="bg-charcoal border border-dark-gray text-white px-4 py-3 rounded-none focus:border-premium-gold focus:outline-none"
           >
             <option value="featured">Featured</option>
             <option value="price-low">Price: Low to High</option>
@@ -383,7 +383,7 @@ const ProductCatalog = ({ category, searchQuery }: ProductCatalogProps) => {
           {/* Filters Toggle */}
           <button
             onClick={() => setShowFilters(!showFilters)}
-            className="flex items-center gap-2 bg-charcoal border border-dark-gray text-white px-4 py-3 rounded-none hover:border-luxury-gold transition-colors duration-300"
+            className="flex items-center gap-2 bg-charcoal border border-dark-gray text-white px-4 py-3 rounded-none hover:border-premium-gold transition-colors duration-300"
           >
             <SlidersHorizontal size={16} />
             Filters
@@ -401,7 +401,7 @@ const ProductCatalog = ({ category, searchQuery }: ProductCatalogProps) => {
               exit={{ opacity: 0, x: -20 }}
               className="w-80 flex-shrink-0 bg-charcoal border border-dark-gray p-6 rounded-none h-fit"
             >
-              <h3 className="text-lg font-montserrat font-semibold text-luxury-gold mb-6">
+              <h3 className="text-lg font-montserrat font-semibold text-premium-gold mb-6">
                 Filters
               </h3>
 
@@ -414,14 +414,14 @@ const ProductCatalog = ({ category, searchQuery }: ProductCatalogProps) => {
                     placeholder="Min"
                     value={priceRange[0]}
                     onChange={(e) => setPriceRange([parseInt(e.target.value) || 0, priceRange[1]])}
-                    className="flex-1 bg-luxury-black border border-dark-gray text-white px-3 py-2 rounded-none focus:border-luxury-gold focus:outline-none"
+                    className="flex-1 bg-premium-black border border-dark-gray text-white px-3 py-2 rounded-none focus:border-premium-gold focus:outline-none"
                   />
                   <input
                     type="number"
                     placeholder="Max"
                     value={priceRange[1]}
                     onChange={(e) => setPriceRange([priceRange[0], parseInt(e.target.value) || 10000])}
-                    className="flex-1 bg-luxury-black border border-dark-gray text-white px-3 py-2 rounded-none focus:border-luxury-gold focus:outline-none"
+                    className="flex-1 bg-premium-black border border-dark-gray text-white px-3 py-2 rounded-none focus:border-premium-gold focus:outline-none"
                   />
                 </div>
               </div>
@@ -442,7 +442,7 @@ const ProductCatalog = ({ category, searchQuery }: ProductCatalogProps) => {
                             setSelectedBrands(selectedBrands.filter(b => b !== brand))
                           }
                         }}
-                        className="w-4 h-4 text-luxury-gold bg-luxury-black border-gray-600 rounded focus:ring-luxury-gold"
+                        className="w-4 h-4 text-premium-gold bg-premium-black border-gray-600 rounded focus:ring-premium-gold"
                       />
                       <span className="text-gray-300">{brand}</span>
                     </label>
@@ -466,8 +466,8 @@ const ProductCatalog = ({ category, searchQuery }: ProductCatalogProps) => {
                       }}
                       className={`w-8 h-8 rounded-full border-2 transition-all duration-300 ${
                         selectedColors.includes(color)
-                          ? 'border-luxury-gold scale-110'
-                          : 'border-gray-600 hover:border-luxury-gold'
+                          ? 'border-premium-gold scale-110'
+                          : 'border-gray-600 hover:border-premium-gold'
                       }`}
                       style={{ backgroundColor: color.toLowerCase() }}
                       title={color}
@@ -487,7 +487,7 @@ const ProductCatalog = ({ category, searchQuery }: ProductCatalogProps) => {
                         name="rating"
                         checked={selectedRating === rating}
                         onChange={() => setSelectedRating(rating)}
-                        className="w-4 h-4 text-luxury-gold bg-luxury-black border-gray-600 focus:ring-luxury-gold"
+                        className="w-4 h-4 text-premium-gold bg-premium-black border-gray-600 focus:ring-premium-gold"
                       />
                       <div className="flex items-center gap-1">
                         {Array.from({ length: 5 }).map((_, i) => (
@@ -495,7 +495,7 @@ const ProductCatalog = ({ category, searchQuery }: ProductCatalogProps) => {
                             key={i}
                             size={14}
                             className={`${
-                              i < rating ? 'text-luxury-gold fill-current' : 'text-gray-600'
+                              i < rating ? 'text-premium-gold fill-current' : 'text-gray-600'
                             }`}
                           />
                         ))}
@@ -514,7 +514,7 @@ const ProductCatalog = ({ category, searchQuery }: ProductCatalogProps) => {
                   setSelectedColors([])
                   setSelectedRating(null)
                 }}
-                className="w-full text-center text-gray-400 hover:text-luxury-gold transition-colors duration-300 py-2 border border-gray-600 hover:border-luxury-gold"
+                className="w-full text-center text-gray-400 hover:text-premium-gold transition-colors duration-300 py-2 border border-gray-600 hover:border-premium-gold"
               >
                 Clear All Filters
               </button>
@@ -540,7 +540,7 @@ const ProductCatalog = ({ category, searchQuery }: ProductCatalogProps) => {
                   setSelectedColors([])
                   setSelectedRating(null)
                 }}
-                className="luxury-button px-6 py-3"
+                className="premium-button px-6 py-3"
               >
                 Clear Filters
               </button>

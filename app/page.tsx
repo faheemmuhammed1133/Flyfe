@@ -36,7 +36,7 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
-            className="min-h-screen bg-luxury-black"
+            className="min-h-screen bg-premium-black"
           >
             <Header />
             
@@ -58,9 +58,9 @@ export default function Home() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
-                    className="text-4xl md:text-5xl font-montserrat font-bold text-center mb-16 text-luxury-gold"
+                    className="text-4xl md:text-5xl font-montserrat font-bold text-center mb-16 text-premium-gold"
                   >
-                    Luxury Categories
+                    Premium Categories
                   </motion.h2>
                   <CategoryGrid />
                 </div>
@@ -102,7 +102,7 @@ export default function Home() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
-                    className="text-4xl md:text-5xl font-montserrat font-bold text-center mb-16 text-luxury-gold"
+                    className="text-4xl md:text-5xl font-montserrat font-bold text-center mb-16 text-premium-gold"
                   >
                     Featured Products
                   </motion.h2>
@@ -116,7 +116,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
-                className="py-20 bg-luxury-gradient"
+                className="py-20 bg-premium-gradient"
               >
                 <Newsletter />
               </motion.section>

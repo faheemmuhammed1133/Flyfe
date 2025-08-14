@@ -63,7 +63,7 @@ const ProductDetail = ({ product }: ProductDetailProps) => {
   }
 
   return (
-    <div className="bg-luxury-black text-white">
+    <div className="bg-premium-black text-white">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Product Images */}
@@ -86,7 +86,7 @@ const ProductDetail = ({ product }: ProductDetailProps) => {
               {/* Product Badges */}
               <div className="absolute top-6 left-6 flex flex-col gap-2">
                 {product.isNew && (
-                  <span className="bg-luxury-gold text-luxury-black px-3 py-1 text-sm font-bold uppercase tracking-wide">
+                  <span className="bg-premium-gold text-premium-black px-3 py-1 text-sm font-bold uppercase tracking-wide">
                     New
                   </span>
                 )}
@@ -105,7 +105,7 @@ const ProductDetail = ({ product }: ProductDetailProps) => {
                       e.stopPropagation()
                       setSelectedImage(prev => prev === 0 ? product.images.length - 1 : prev - 1)
                     }}
-                    className="absolute left-4 top-1/2 transform -translate-y-1/2 p-3 bg-luxury-black/70 hover:bg-luxury-gold hover:text-luxury-black text-white rounded-full transition-all duration-300"
+                    className="absolute left-4 top-1/2 transform -translate-y-1/2 p-3 bg-premium-black/70 hover:bg-premium-gold hover:text-premium-black text-white rounded-full transition-all duration-300"
                   >
                     <ChevronLeft size={20} />
                   </button>
@@ -114,7 +114,7 @@ const ProductDetail = ({ product }: ProductDetailProps) => {
                       e.stopPropagation()
                       setSelectedImage(prev => prev === product.images.length - 1 ? 0 : prev + 1)
                     }}
-                    className="absolute right-4 top-1/2 transform -translate-y-1/2 p-3 bg-luxury-black/70 hover:bg-luxury-gold hover:text-luxury-black text-white rounded-full transition-all duration-300"
+                    className="absolute right-4 top-1/2 transform -translate-y-1/2 p-3 bg-premium-black/70 hover:bg-premium-gold hover:text-premium-black text-white rounded-full transition-all duration-300"
                   >
                     <ChevronRight size={20} />
                   </button>
@@ -132,7 +132,7 @@ const ProductDetail = ({ product }: ProductDetailProps) => {
                     whileTap={{ scale: 0.95 }}
                     onClick={() => setSelectedImage(index)}
                     className={`flex-shrink-0 w-20 h-20 relative overflow-hidden bg-charcoal rounded-none border-2 transition-all duration-300 ${
-                      selectedImage === index ? 'border-luxury-gold' : 'border-transparent hover:border-luxury-gold/50'
+                      selectedImage === index ? 'border-premium-gold' : 'border-transparent hover:border-premium-gold/50'
                     }`}
                   >
                     <Image
@@ -155,7 +155,7 @@ const ProductDetail = ({ product }: ProductDetailProps) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <p className="text-luxury-gold text-sm font-poppins font-medium tracking-wider uppercase mb-2">
+              <p className="text-premium-gold text-sm font-poppins font-medium tracking-wider uppercase mb-2">
                 {product.brand} • {product.category}
               </p>
               
@@ -172,7 +172,7 @@ const ProductDetail = ({ product }: ProductDetailProps) => {
                       size={16}
                       className={`${
                         i < Math.floor(product.rating)
-                          ? 'text-luxury-gold fill-current'
+                          ? 'text-premium-gold fill-current'
                           : 'text-gray-600'
                       }`}
                     />
@@ -185,7 +185,7 @@ const ProductDetail = ({ product }: ProductDetailProps) => {
 
               {/* Price */}
               <div className="flex items-center gap-4 mb-6">
-                <span className="text-3xl font-bold text-luxury-gold">
+                <span className="text-3xl font-bold text-premium-gold">
                   ${product.price.toLocaleString()}
                 </span>
                 {product.originalPrice && (
@@ -214,13 +214,13 @@ const ProductDetail = ({ product }: ProductDetailProps) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <h3 className="text-lg font-montserrat font-semibold mb-4 text-luxury-gold">
+              <h3 className="text-lg font-montserrat font-semibold mb-4 text-premium-gold">
                 Key Features
               </h3>
               <ul className="space-y-2">
                 {product.features.map((feature, index) => (
                   <li key={index} className="flex items-center gap-3 text-gray-300">
-                    <div className="w-1.5 h-1.5 bg-luxury-gold rounded-full flex-shrink-0" />
+                    <div className="w-1.5 h-1.5 bg-premium-gold rounded-full flex-shrink-0" />
                     {feature}
                   </li>
                 ))}
@@ -233,7 +233,7 @@ const ProductDetail = ({ product }: ProductDetailProps) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
             >
-              <h3 className="text-lg font-montserrat font-semibold mb-4 text-luxury-gold">
+              <h3 className="text-lg font-montserrat font-semibold mb-4 text-premium-gold">
                 Size
               </h3>
               <div className="flex gap-3 flex-wrap">
@@ -243,8 +243,8 @@ const ProductDetail = ({ product }: ProductDetailProps) => {
                     onClick={() => setSelectedSize(size)}
                     className={`px-4 py-2 border transition-all duration-300 font-poppins font-medium ${
                       selectedSize === size
-                        ? 'border-luxury-gold bg-luxury-gold text-luxury-black'
-                        : 'border-gray-600 text-gray-300 hover:border-luxury-gold hover:text-luxury-gold'
+                        ? 'border-premium-gold bg-premium-gold text-premium-black'
+                        : 'border-gray-600 text-gray-300 hover:border-premium-gold hover:text-premium-gold'
                     }`}
                   >
                     {size}
@@ -262,21 +262,21 @@ const ProductDetail = ({ product }: ProductDetailProps) => {
             >
               {/* Quantity */}
               <div>
-                <h3 className="text-lg font-montserrat font-semibold mb-4 text-luxury-gold">
+                <h3 className="text-lg font-montserrat font-semibold mb-4 text-premium-gold">
                   Quantity
                 </h3>
                 <div className="flex items-center gap-4">
                   <div className="flex items-center border border-gray-600">
                     <button
                       onClick={() => handleQuantityChange(-1)}
-                      className="p-3 hover:bg-luxury-gold hover:text-luxury-black transition-all duration-300"
+                      className="p-3 hover:bg-premium-gold hover:text-premium-black transition-all duration-300"
                     >
                       <Minus size={16} />
                     </button>
                     <span className="px-6 py-3 font-semibold">{quantity}</span>
                     <button
                       onClick={() => handleQuantityChange(1)}
-                      className="p-3 hover:bg-luxury-gold hover:text-luxury-black transition-all duration-300"
+                      className="p-3 hover:bg-premium-gold hover:text-premium-black transition-all duration-300"
                     >
                       <Plus size={16} />
                     </button>
@@ -293,7 +293,7 @@ const ProductDetail = ({ product }: ProductDetailProps) => {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={handleAddToCart}
-                  className="flex-1 luxury-button px-8 py-4 text-lg flex items-center justify-center gap-3"
+                  className="flex-1 premium-button px-8 py-4 text-lg flex items-center justify-center gap-3"
                 >
                   <ShoppingBag size={20} />
                   Add to Cart
@@ -305,8 +305,8 @@ const ProductDetail = ({ product }: ProductDetailProps) => {
                   onClick={handleWishlist}
                   className={`p-4 border transition-all duration-300 ${
                     isWishlisted
-                      ? 'border-luxury-gold bg-luxury-gold text-luxury-black'
-                      : 'border-gray-600 text-gray-300 hover:border-luxury-gold hover:text-luxury-gold'
+                      ? 'border-premium-gold bg-premium-gold text-premium-black'
+                      : 'border-gray-600 text-gray-300 hover:border-premium-gold hover:text-premium-gold'
                   }`}
                 >
                   <Heart size={20} className={isWishlisted ? 'fill-current' : ''} />
@@ -315,7 +315,7 @@ const ProductDetail = ({ product }: ProductDetailProps) => {
                 <motion.button
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
-                  className="p-4 border border-gray-600 text-gray-300 hover:border-luxury-gold hover:text-luxury-gold transition-all duration-300"
+                  className="p-4 border border-gray-600 text-gray-300 hover:border-premium-gold hover:text-premium-gold transition-all duration-300"
                 >
                   <Share2 size={20} />
                 </motion.button>
@@ -335,8 +335,8 @@ const ProductDetail = ({ product }: ProductDetailProps) => {
                 { icon: RotateCcw, title: 'Easy Returns', desc: '30-day policy' },
               ].map((item, index) => (
                 <div key={item.title} className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-luxury-gold/10 rounded-full flex items-center justify-center">
-                    <item.icon className="text-luxury-gold" size={18} />
+                  <div className="w-10 h-10 bg-premium-gold/10 rounded-full flex items-center justify-center">
+                    <item.icon className="text-premium-gold" size={18} />
                   </div>
                   <div>
                     <p className="font-semibold text-sm">{item.title}</p>
@@ -356,7 +356,7 @@ const ProductDetail = ({ product }: ProductDetailProps) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-luxury-black/95 z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 bg-premium-black/95 z-50 flex items-center justify-center p-4"
             onClick={() => setIsZoomed(false)}
           >
             <motion.div
@@ -374,7 +374,7 @@ const ProductDetail = ({ product }: ProductDetailProps) => {
               />
               <button
                 onClick={() => setIsZoomed(false)}
-                className="absolute top-4 right-4 p-2 bg-luxury-black/70 hover:bg-luxury-gold hover:text-luxury-black text-white rounded-full transition-all duration-300"
+                className="absolute top-4 right-4 p-2 bg-premium-black/70 hover:bg-premium-gold hover:text-premium-black text-white rounded-full transition-all duration-300"
               >
                 ✕
               </button>

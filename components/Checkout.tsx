@@ -100,7 +100,7 @@ const Checkout = ({ items, onClose }: CheckoutProps) => {
       exit={{ opacity: 0, x: -20 }}
       className="space-y-6"
     >
-      <h3 className="text-xl font-montserrat font-semibold text-luxury-gold mb-6">
+      <h3 className="text-xl font-montserrat font-semibold text-premium-gold mb-6">
         Shipping Information
       </h3>
 
@@ -113,7 +113,7 @@ const Checkout = ({ items, onClose }: CheckoutProps) => {
             type="text"
             value={formData.firstName}
             onChange={(e) => handleInputChange('firstName', e.target.value)}
-            className="luxury-input w-full"
+            className="premium-input w-full"
             required
           />
         </div>
@@ -125,7 +125,7 @@ const Checkout = ({ items, onClose }: CheckoutProps) => {
             type="text"
             value={formData.lastName}
             onChange={(e) => handleInputChange('lastName', e.target.value)}
-            className="luxury-input w-full"
+            className="premium-input w-full"
             required
           />
         </div>
@@ -139,7 +139,7 @@ const Checkout = ({ items, onClose }: CheckoutProps) => {
           type="email"
           value={formData.email}
           onChange={(e) => handleInputChange('email', e.target.value)}
-          className="luxury-input w-full"
+          className="premium-input w-full"
           required
         />
       </div>
@@ -152,7 +152,7 @@ const Checkout = ({ items, onClose }: CheckoutProps) => {
           type="tel"
           value={formData.phone}
           onChange={(e) => handleInputChange('phone', e.target.value)}
-          className="luxury-input w-full"
+          className="premium-input w-full"
         />
       </div>
 
@@ -164,7 +164,7 @@ const Checkout = ({ items, onClose }: CheckoutProps) => {
           type="text"
           value={formData.address}
           onChange={(e) => handleInputChange('address', e.target.value)}
-          className="luxury-input w-full"
+          className="premium-input w-full"
           required
         />
       </div>
@@ -177,7 +177,7 @@ const Checkout = ({ items, onClose }: CheckoutProps) => {
           type="text"
           value={formData.apartment}
           onChange={(e) => handleInputChange('apartment', e.target.value)}
-          className="luxury-input w-full"
+          className="premium-input w-full"
         />
       </div>
 
@@ -190,7 +190,7 @@ const Checkout = ({ items, onClose }: CheckoutProps) => {
             type="text"
             value={formData.city}
             onChange={(e) => handleInputChange('city', e.target.value)}
-            className="luxury-input w-full"
+            className="premium-input w-full"
             required
           />
         </div>
@@ -202,7 +202,7 @@ const Checkout = ({ items, onClose }: CheckoutProps) => {
             type="text"
             value={formData.state}
             onChange={(e) => handleInputChange('state', e.target.value)}
-            className="luxury-input w-full"
+            className="premium-input w-full"
             required
           />
         </div>
@@ -214,7 +214,7 @@ const Checkout = ({ items, onClose }: CheckoutProps) => {
             type="text"
             value={formData.zipCode}
             onChange={(e) => handleInputChange('zipCode', e.target.value)}
-            className="luxury-input w-full"
+            className="premium-input w-full"
             required
           />
         </div>
@@ -226,19 +226,19 @@ const Checkout = ({ items, onClose }: CheckoutProps) => {
           Shipping Method
         </h4>
         <div className="space-y-3">
-          <label className="flex items-center gap-3 p-4 border border-dark-gray hover:border-luxury-gold transition-colors duration-300 cursor-pointer">
+          <label className="flex items-center gap-3 p-4 border border-dark-gray hover:border-premium-gold transition-colors duration-300 cursor-pointer">
             <input
               type="radio"
               name="shipping"
               value="standard"
               checked={formData.shippingMethod === 'standard'}
               onChange={(e) => handleInputChange('shippingMethod', e.target.value)}
-              className="text-luxury-gold"
+              className="text-premium-gold"
             />
             <div className="flex-1">
               <div className="flex justify-between items-center">
                 <span className="font-medium text-white">Standard Shipping</span>
-                <span className="text-luxury-gold font-bold">
+                <span className="text-premium-gold font-bold">
                   {subtotal > 500 ? 'Free' : '$25'}
                 </span>
               </div>
@@ -246,19 +246,19 @@ const Checkout = ({ items, onClose }: CheckoutProps) => {
             </div>
           </label>
           
-          <label className="flex items-center gap-3 p-4 border border-dark-gray hover:border-luxury-gold transition-colors duration-300 cursor-pointer">
+          <label className="flex items-center gap-3 p-4 border border-dark-gray hover:border-premium-gold transition-colors duration-300 cursor-pointer">
             <input
               type="radio"
               name="shipping"
               value="express"
               checked={formData.shippingMethod === 'express'}
               onChange={(e) => handleInputChange('shippingMethod', e.target.value)}
-              className="text-luxury-gold"
+              className="text-premium-gold"
             />
             <div className="flex-1">
               <div className="flex justify-between items-center">
                 <span className="font-medium text-white">Express Shipping</span>
-                <span className="text-luxury-gold font-bold">$25</span>
+                <span className="text-premium-gold font-bold">$25</span>
               </div>
               <p className="text-sm text-gray-400">2-3 business days</p>
             </div>
@@ -273,10 +273,10 @@ const Checkout = ({ items, onClose }: CheckoutProps) => {
           id="giftWrap"
           checked={formData.giftWrap}
           onChange={(e) => handleInputChange('giftWrap', e.target.checked)}
-          className="text-luxury-gold"
+          className="text-premium-gold"
         />
         <label htmlFor="giftWrap" className="text-gray-300">
-          Add luxury gift wrapping (+$15)
+          Add premium gift wrapping (+$15)
         </label>
       </div>
     </motion.div>
@@ -289,14 +289,14 @@ const Checkout = ({ items, onClose }: CheckoutProps) => {
       exit={{ opacity: 0, x: -20 }}
       className="space-y-6"
     >
-      <h3 className="text-xl font-montserrat font-semibold text-luxury-gold mb-6">
+      <h3 className="text-xl font-montserrat font-semibold text-premium-gold mb-6">
         Payment Information
       </h3>
 
-      <div className="bg-charcoal border border-luxury-gold/30 p-4 rounded-none">
+      <div className="bg-charcoal border border-premium-gold/30 p-4 rounded-none">
         <div className="flex items-center gap-2 mb-2">
-          <Shield className="text-luxury-gold" size={16} />
-          <span className="text-sm text-luxury-gold font-medium">
+          <Shield className="text-premium-gold" size={16} />
+          <span className="text-sm text-premium-gold font-medium">
             Secure SSL Encrypted Payment
           </span>
         </div>
@@ -314,7 +314,7 @@ const Checkout = ({ items, onClose }: CheckoutProps) => {
           value={formData.cardNumber}
           onChange={(e) => handleInputChange('cardNumber', e.target.value)}
           placeholder="1234 5678 9012 3456"
-          className="luxury-input w-full"
+          className="premium-input w-full"
           required
         />
       </div>
@@ -329,7 +329,7 @@ const Checkout = ({ items, onClose }: CheckoutProps) => {
             value={formData.expiryDate}
             onChange={(e) => handleInputChange('expiryDate', e.target.value)}
             placeholder="MM/YY"
-            className="luxury-input w-full"
+            className="premium-input w-full"
             required
           />
         </div>
@@ -342,7 +342,7 @@ const Checkout = ({ items, onClose }: CheckoutProps) => {
             value={formData.cvv}
             onChange={(e) => handleInputChange('cvv', e.target.value)}
             placeholder="123"
-            className="luxury-input w-full"
+            className="premium-input w-full"
             required
           />
         </div>
@@ -356,7 +356,7 @@ const Checkout = ({ items, onClose }: CheckoutProps) => {
           type="text"
           value={formData.cardName}
           onChange={(e) => handleInputChange('cardName', e.target.value)}
-          className="luxury-input w-full"
+          className="premium-input w-full"
           required
         />
       </div>
@@ -368,7 +368,7 @@ const Checkout = ({ items, onClose }: CheckoutProps) => {
           id="newsletter"
           checked={formData.newsletter}
           onChange={(e) => handleInputChange('newsletter', e.target.checked)}
-          className="text-luxury-gold"
+          className="text-premium-gold"
         />
         <label htmlFor="newsletter" className="text-gray-300">
           Subscribe to our newsletter for exclusive offers
@@ -384,14 +384,14 @@ const Checkout = ({ items, onClose }: CheckoutProps) => {
       exit={{ opacity: 0, x: -20 }}
       className="space-y-6"
     >
-      <h3 className="text-xl font-montserrat font-semibold text-luxury-gold mb-6">
+      <h3 className="text-xl font-montserrat font-semibold text-premium-gold mb-6">
         Order Review
       </h3>
 
       {/* Shipping Address */}
       <div className="bg-charcoal p-6 rounded-none">
         <h4 className="font-semibold text-white mb-3 flex items-center gap-2">
-          <MapPin size={16} className="text-luxury-gold" />
+          <MapPin size={16} className="text-premium-gold" />
           Shipping Address
         </h4>
         <p className="text-gray-300 leading-relaxed">
@@ -406,7 +406,7 @@ const Checkout = ({ items, onClose }: CheckoutProps) => {
       {/* Payment Method */}
       <div className="bg-charcoal p-6 rounded-none">
         <h4 className="font-semibold text-white mb-3 flex items-center gap-2">
-          <CreditCard size={16} className="text-luxury-gold" />
+          <CreditCard size={16} className="text-premium-gold" />
           Payment Method
         </h4>
         <p className="text-gray-300">
@@ -440,7 +440,7 @@ const Checkout = ({ items, onClose }: CheckoutProps) => {
                 )}
                 <p className="text-sm text-gray-400">Qty: {item.quantity}</p>
               </div>
-              <div className="text-luxury-gold font-bold">
+              <div className="text-premium-gold font-bold">
                 ${(item.price * item.quantity).toLocaleString()}
               </div>
             </div>
@@ -451,22 +451,22 @@ const Checkout = ({ items, onClose }: CheckoutProps) => {
   )
 
   return (
-    <div className="fixed inset-0 bg-luxury-black/95 backdrop-blur-sm z-50 overflow-y-auto">
+    <div className="fixed inset-0 bg-premium-black/95 backdrop-blur-sm z-50 overflow-y-auto">
       <div className="min-h-screen py-8">
         <div className="container mx-auto px-4 max-w-6xl">
           {/* Header */}
           <div className="flex items-center justify-between mb-8">
             <button
               onClick={onClose}
-              className="flex items-center gap-2 text-gray-400 hover:text-luxury-gold transition-colors duration-300"
+              className="flex items-center gap-2 text-gray-400 hover:text-premium-gold transition-colors duration-300"
             >
               <ArrowLeft size={20} />
               Back to Cart
             </button>
-            <h1 className="text-2xl font-montserrat font-bold text-luxury-gold">
+            <h1 className="text-2xl font-montserrat font-bold text-premium-gold">
               Secure Checkout
             </h1>
-            <div className="flex items-center gap-2 text-luxury-gold">
+            <div className="flex items-center gap-2 text-premium-gold">
               <Lock size={16} />
               <span className="text-sm">SSL Secured</span>
             </div>
@@ -481,19 +481,19 @@ const Checkout = ({ items, onClose }: CheckoutProps) => {
                   <div key={step.id} className="flex items-center">
                     <div className={`flex items-center justify-center w-10 h-10 rounded-full border-2 transition-all duration-300 ${
                       currentStep >= step.id
-                        ? 'bg-luxury-gold border-luxury-gold text-luxury-black'
+                        ? 'bg-premium-gold border-premium-gold text-premium-black'
                         : 'border-gray-600 text-gray-400'
                     }`}>
                       <step.icon size={16} />
                     </div>
                     <span className={`ml-2 font-medium ${
-                      currentStep >= step.id ? 'text-luxury-gold' : 'text-gray-400'
+                      currentStep >= step.id ? 'text-premium-gold' : 'text-gray-400'
                     }`}>
                       {step.title}
                     </span>
                     {index < steps.length - 1 && (
                       <div className={`w-16 h-0.5 mx-4 ${
-                        currentStep > step.id ? 'bg-luxury-gold' : 'bg-gray-600'
+                        currentStep > step.id ? 'bg-premium-gold' : 'bg-gray-600'
                       }`} />
                     )}
                   </div>
@@ -501,7 +501,7 @@ const Checkout = ({ items, onClose }: CheckoutProps) => {
               </div>
 
               {/* Step Content */}
-              <div className="bg-luxury-black border border-dark-gray p-8 rounded-none">
+              <div className="bg-premium-black border border-dark-gray p-8 rounded-none">
                 <AnimatePresence mode="wait">
                   {currentStep === 1 && <ShippingStep key="shipping" />}
                   {currentStep === 2 && <PaymentStep key="payment" />}
@@ -513,7 +513,7 @@ const Checkout = ({ items, onClose }: CheckoutProps) => {
                   <button
                     onClick={handlePrevious}
                     disabled={currentStep === 1}
-                    className="flex items-center gap-2 px-6 py-3 border border-gray-600 text-gray-300 hover:border-luxury-gold hover:text-luxury-gold transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="flex items-center gap-2 px-6 py-3 border border-gray-600 text-gray-300 hover:border-premium-gold hover:text-premium-gold transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     <ArrowLeft size={16} />
                     Previous
@@ -524,7 +524,7 @@ const Checkout = ({ items, onClose }: CheckoutProps) => {
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                       onClick={handleNext}
-                      className="luxury-button px-8 py-3 flex items-center gap-2"
+                      className="premium-button px-8 py-3 flex items-center gap-2"
                     >
                       Continue
                       <ArrowRight size={16} />
@@ -534,7 +534,7 @@ const Checkout = ({ items, onClose }: CheckoutProps) => {
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                       onClick={handleSubmit}
-                      className="luxury-button px-8 py-3 flex items-center gap-2"
+                      className="premium-button px-8 py-3 flex items-center gap-2"
                     >
                       <Lock size={16} />
                       Complete Order
@@ -574,21 +574,21 @@ const Checkout = ({ items, onClose }: CheckoutProps) => {
 
                 <div className="flex justify-between text-xl font-bold text-white pt-4 border-t border-dark-gray">
                   <span>Total</span>
-                  <span className="text-luxury-gold">${total.toLocaleString()}</span>
+                  <span className="text-premium-gold">${total.toLocaleString()}</span>
                 </div>
 
                 {/* Trust Indicators */}
                 <div className="mt-6 pt-6 border-t border-dark-gray space-y-3">
                   <div className="flex items-center gap-2 text-sm text-gray-400">
-                    <Shield size={14} className="text-luxury-gold" />
+                    <Shield size={14} className="text-premium-gold" />
                     <span>256-bit SSL encryption</span>
                   </div>
                   <div className="flex items-center gap-2 text-sm text-gray-400">
-                    <CheckCircle size={14} className="text-luxury-gold" />
+                    <CheckCircle size={14} className="text-premium-gold" />
                     <span>30-day return policy</span>
                   </div>
                   <div className="flex items-center gap-2 text-sm text-gray-400">
-                    <Truck size={14} className="text-luxury-gold" />
+                    <Truck size={14} className="text-premium-gold" />
                     <span>Free shipping over $500</span>
                   </div>
                 </div>

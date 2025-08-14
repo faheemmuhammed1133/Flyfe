@@ -23,7 +23,7 @@ const ProductCarousel = () => {
   const [products] = useState<Product[]>([
     {
       id: 1,
-      name: 'Luxury Gold Watch',
+      name: 'Premium Gold Watch',
       price: 2499,
       originalPrice: 2999,
       image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&h=500&fit=crop',
@@ -105,7 +105,7 @@ const ProductCarousel = () => {
       {/* Product Badges */}
       <div className="absolute top-4 left-4 z-10 flex flex-col gap-2">
         {product.isNew && (
-          <span className="bg-luxury-gold text-luxury-black px-2 py-1 text-xs font-bold uppercase tracking-wide">
+          <span className="bg-premium-gold text-premium-black px-2 py-1 text-xs font-bold uppercase tracking-wide">
             New
           </span>
         )}
@@ -120,7 +120,7 @@ const ProductCarousel = () => {
       <motion.button
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
-        className="absolute top-4 right-4 z-10 p-2 bg-luxury-black/50 backdrop-blur-sm rounded-full text-white hover:text-luxury-gold transition-colors duration-300 opacity-0 group-hover:opacity-100"
+        className="absolute top-4 right-4 z-10 p-2 bg-premium-black/50 backdrop-blur-sm rounded-full text-white hover:text-premium-gold transition-colors duration-300 opacity-0 group-hover:opacity-100"
       >
         <Heart size={16} />
       </motion.button>
@@ -135,12 +135,12 @@ const ProductCarousel = () => {
         />
         
         {/* Overlay on Hover */}
-        <div className="absolute inset-0 bg-luxury-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+        <div className="absolute inset-0 bg-premium-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
           <motion.button
             initial={{ scale: 0 }}
             whileHover={{ scale: 1.1 }}
             animate={{ scale: 1 }}
-            className="luxury-button px-6 py-2 text-sm flex items-center gap-2"
+            className="premium-button px-6 py-2 text-sm flex items-center gap-2"
           >
             <ShoppingBag size={16} />
             Quick Add
@@ -157,7 +157,7 @@ const ProductCarousel = () => {
               size={12}
               className={`${
                 i < Math.floor(product.rating)
-                  ? 'text-luxury-gold fill-current'
+                  ? 'text-premium-gold fill-current'
                   : 'text-gray-600'
               }`}
             />
@@ -165,12 +165,12 @@ const ProductCarousel = () => {
           <span className="text-xs text-gray-400 ml-1">({product.reviews})</span>
         </div>
 
-        <h3 className="font-poppins font-semibold text-white mb-3 group-hover:text-luxury-gold transition-colors duration-300">
+        <h3 className="font-poppins font-semibold text-white mb-3 group-hover:text-premium-gold transition-colors duration-300">
           {product.name}
         </h3>
 
         <div className="flex items-center gap-2">
-          <span className="text-luxury-gold font-bold text-lg">
+          <span className="text-premium-gold font-bold text-lg">
             ${product.price.toLocaleString()}
           </span>
           {product.originalPrice && (
@@ -193,7 +193,7 @@ const ProductCarousel = () => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             onClick={prevSlide}
-            className="p-3 bg-charcoal border border-luxury-gold/30 text-luxury-gold hover:bg-luxury-gold hover:text-luxury-black transition-all duration-300"
+            className="p-3 bg-charcoal border border-premium-gold/30 text-premium-gold hover:bg-premium-gold hover:text-premium-black transition-all duration-300"
             disabled={currentIndex === 0}
           >
             <ChevronLeft size={20} />
@@ -203,7 +203,7 @@ const ProductCarousel = () => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             onClick={nextSlide}
-            className="p-3 bg-charcoal border border-luxury-gold/30 text-luxury-gold hover:bg-luxury-gold hover:text-luxury-black transition-all duration-300"
+            className="p-3 bg-charcoal border border-premium-gold/30 text-premium-gold hover:bg-premium-gold hover:text-premium-black transition-all duration-300"
             disabled={currentIndex === maxIndex}
           >
             <ChevronRight size={20} />
@@ -217,7 +217,7 @@ const ProductCarousel = () => {
               key={index}
               onClick={() => setCurrentIndex(index)}
               className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                index === currentIndex ? 'bg-luxury-gold w-8' : 'bg-gray-600'
+                index === currentIndex ? 'bg-premium-gold w-8' : 'bg-gray-600'
               }`}
             />
           ))}
@@ -256,7 +256,7 @@ const ProductCarousel = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
-            className="luxury-button px-8 py-3 text-lg"
+            className="premium-button px-8 py-3 text-lg"
           >
             View All Products
           </motion.button>

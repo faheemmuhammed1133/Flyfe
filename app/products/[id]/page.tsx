@@ -58,7 +58,7 @@ export default function ProductPage() {
     ],
     rating: 4.9,
     reviews: 234,
-    description: 'Exquisite diamond tennis bracelet crafted with precision and elegance. Each diamond is hand-selected for exceptional clarity and brilliance, set in 18k gold for a timeless luxury piece that will be treasured for generations. This masterpiece represents the pinnacle of fine jewelry craftsmanship.',
+    description: 'Exquisite diamond tennis bracelet crafted with precision and elegance. Each diamond is hand-selected for exceptional clarity and brilliance, set in 18k gold for a timeless premium piece that will be treasured for generations. This masterpiece represents the pinnacle of fine jewelry craftsmanship.',
     features: [
       'Hand-selected VS1 clarity diamonds',
       '18k solid gold construction',
@@ -66,7 +66,7 @@ export default function ProductPage() {
       'Professional certification included',
       'Lifetime craftsmanship warranty',
       'Complimentary sizing service',
-      'Luxury gift packaging included'
+      'Premium gift packaging included'
     ],
     specifications: {
       'Metal Type': '18k Yellow Gold',
@@ -90,7 +90,7 @@ export default function ProductPage() {
     ],
     careInstructions: [
       'Clean with soft jewelry cloth after each wear',
-      'Store in provided luxury jewelry box',
+      'Store in provided premium jewelry box',
       'Avoid contact with perfumes and lotions',
       'Professional cleaning recommended annually',
       'Remove before swimming or exercising',
@@ -118,14 +118,14 @@ export default function ProductPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-luxury-black flex items-center justify-center">
+      <div className="min-h-screen bg-premium-black flex items-center justify-center">
         <div className="text-center">
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
-            className="w-16 h-16 border-2 border-luxury-gold border-t-transparent rounded-full mx-auto mb-4"
+            className="w-16 h-16 border-2 border-premium-gold border-t-transparent rounded-full mx-auto mb-4"
           />
-          <p className="text-luxury-gold font-poppins text-lg">Loading luxury experience...</p>
+          <p className="text-premium-gold font-poppins text-lg">Loading premium experience...</p>
         </div>
       </div>
     )
@@ -133,19 +133,19 @@ export default function ProductPage() {
 
   if (!product) {
     return (
-      <div className="min-h-screen bg-luxury-black flex items-center justify-center">
+      <div className="min-h-screen bg-premium-black flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-4xl font-montserrat font-bold text-luxury-gold mb-4">
+          <h1 className="text-4xl font-montserrat font-bold text-premium-gold mb-4">
             Product Not Found
           </h1>
           <p className="text-gray-300 font-poppins mb-8">
-            The luxury item you're looking for doesn't exist or has been moved.
+            The premium item you're looking for doesn't exist or has been moved.
           </p>
           <motion.a
             href="/"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
-            className="luxury-button px-8 py-3 inline-block"
+            className="premium-button px-8 py-3 inline-block"
           >
             Return to Collection
           </motion.a>
@@ -155,7 +155,7 @@ export default function ProductPage() {
   }
 
   return (
-    <div className="min-h-screen bg-luxury-black">
+    <div className="min-h-screen bg-premium-black">
       <Header />
       
       <main className="pt-20">
@@ -167,18 +167,18 @@ export default function ProductPage() {
           className="container mx-auto px-4 py-6"
         >
           <div className="flex items-center gap-2 text-sm text-gray-400 font-poppins">
-            <a href="/" className="hover:text-luxury-gold transition-colors duration-300">
+            <a href="/" className="hover:text-premium-gold transition-colors duration-300">
               Home
             </a>
             <span>/</span>
             <a 
               href={`/categories/${product.category.toLowerCase()}`}
-              className="hover:text-luxury-gold transition-colors duration-300"
+              className="hover:text-premium-gold transition-colors duration-300"
             >
               {product.category}
             </a>
             <span>/</span>
-            <span className="text-luxury-gold">{product.name}</span>
+            <span className="text-premium-gold">{product.name}</span>
           </div>
         </motion.nav>
 

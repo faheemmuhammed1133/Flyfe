@@ -31,7 +31,7 @@ const RelatedProducts = ({ currentProductId, category, title = "Related Products
   const relatedProducts: Product[] = [
     {
       id: 101,
-      name: 'Luxury Gold Bracelet',
+      name: 'Premium Gold Bracelet',
       price: 1299,
       originalPrice: 1599,
       image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=500&h=500&fit=crop',
@@ -94,7 +94,7 @@ const RelatedProducts = ({ currentProductId, category, title = "Related Products
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ duration: 0.3, delay: index * 0.1 + 0.5 }}
-              className="bg-luxury-gold text-luxury-black px-3 py-1 text-xs font-bold uppercase tracking-wide"
+              className="bg-premium-gold text-premium-black px-3 py-1 text-xs font-bold uppercase tracking-wide"
             >
               New
             </motion.span>
@@ -121,7 +121,7 @@ const RelatedProducts = ({ currentProductId, category, title = "Related Products
               e.stopPropagation()
               // Add to wishlist logic
             }}
-            className="p-2 bg-luxury-black/70 backdrop-blur-sm rounded-full text-white hover:text-luxury-gold hover:bg-luxury-gold/20 transition-all duration-300"
+            className="p-2 bg-premium-black/70 backdrop-blur-sm rounded-full text-white hover:text-premium-gold hover:bg-premium-gold/20 transition-all duration-300"
             aria-label="Add to wishlist"
           >
             <Heart size={16} />
@@ -135,7 +135,7 @@ const RelatedProducts = ({ currentProductId, category, title = "Related Products
               e.stopPropagation()
               // Quick view logic
             }}
-            className="p-2 bg-luxury-black/70 backdrop-blur-sm rounded-full text-white hover:text-luxury-gold hover:bg-luxury-gold/20 transition-all duration-300"
+            className="p-2 bg-premium-black/70 backdrop-blur-sm rounded-full text-white hover:text-premium-gold hover:bg-premium-gold/20 transition-all duration-300"
             aria-label="Quick view"
           >
             <Eye size={16} />
@@ -155,7 +155,7 @@ const RelatedProducts = ({ currentProductId, category, title = "Related Products
           <motion.div
             initial={{ opacity: 0 }}
             whileHover={{ opacity: 1 }}
-            className="absolute inset-0 bg-luxury-black/50 flex items-center justify-center transition-opacity duration-300"
+            className="absolute inset-0 bg-premium-black/50 flex items-center justify-center transition-opacity duration-300"
           >
             <motion.button
               initial={{ scale: 0, opacity: 0 }}
@@ -167,7 +167,7 @@ const RelatedProducts = ({ currentProductId, category, title = "Related Products
                 e.stopPropagation()
                 // Add to cart logic
               }}
-              className="luxury-button px-6 py-3 flex items-center gap-2"
+              className="premium-button px-6 py-3 flex items-center gap-2"
             >
               <ShoppingBag size={16} />
               Quick Add
@@ -176,7 +176,7 @@ const RelatedProducts = ({ currentProductId, category, title = "Related Products
 
           {/* Gold Shimmer Effect */}
           <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-luxury-gold/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-premium-gold/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
           </div>
         </div>
 
@@ -190,7 +190,7 @@ const RelatedProducts = ({ currentProductId, category, title = "Related Products
             viewport={{ once: true }}
             className="flex items-center justify-between mb-2"
           >
-            <span className="text-luxury-gold text-xs font-poppins font-medium tracking-wider uppercase">
+            <span className="text-premium-gold text-xs font-poppins font-medium tracking-wider uppercase">
               {product.brand}
             </span>
             <span className="text-gray-500 text-xs uppercase">
@@ -206,7 +206,7 @@ const RelatedProducts = ({ currentProductId, category, title = "Related Products
                 size={14}
                 className={`${
                   i < Math.floor(product.rating)
-                    ? 'text-luxury-gold fill-current'
+                    ? 'text-premium-gold fill-current'
                     : 'text-gray-600'
                 }`}
               />
@@ -222,7 +222,7 @@ const RelatedProducts = ({ currentProductId, category, title = "Related Products
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: index * 0.1 + 0.4 }}
             viewport={{ once: true }}
-            className="font-poppins font-semibold text-white mb-4 group-hover:text-luxury-gold transition-colors duration-300 text-lg leading-tight line-clamp-2"
+            className="font-poppins font-semibold text-white mb-4 group-hover:text-premium-gold transition-colors duration-300 text-lg leading-tight line-clamp-2"
           >
             {product.name}
           </motion.h3>
@@ -235,7 +235,7 @@ const RelatedProducts = ({ currentProductId, category, title = "Related Products
             viewport={{ once: true }}
             className="flex items-center gap-3"
           >
-            <span className="text-luxury-gold font-bold text-xl">
+            <span className="text-premium-gold font-bold text-xl">
               ${product.price.toLocaleString()}
             </span>
             {product.originalPrice && (
@@ -250,7 +250,7 @@ const RelatedProducts = ({ currentProductId, category, title = "Related Products
   )
 
   return (
-    <section className="py-16 bg-luxury-black">
+    <section className="py-16 bg-premium-black">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <motion.div
@@ -260,11 +260,11 @@ const RelatedProducts = ({ currentProductId, category, title = "Related Products
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-montserrat font-bold text-luxury-gold mb-4">
+          <h2 className="text-3xl md:text-4xl font-montserrat font-bold text-premium-gold mb-4">
             {title}
           </h2>
           <p className="text-gray-300 font-poppins max-w-2xl mx-auto">
-            Discover more luxury pieces that complement your style and elevate your collection
+            Discover more premium pieces that complement your style and elevate your collection
           </p>
         </motion.div>
 
@@ -287,7 +287,7 @@ const RelatedProducts = ({ currentProductId, category, title = "Related Products
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
-              className="luxury-button px-8 py-3"
+              className="premium-button px-8 py-3"
             >
               View All {category}
             </motion.button>

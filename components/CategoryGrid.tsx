@@ -18,7 +18,7 @@ const CategoryGrid = () => {
   const categories: Category[] = [
     {
       id: 1,
-      name: 'Luxury Watches',
+      name: 'Premium Watches',
       description: 'Timeless elegance for the discerning collector',
       image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&h=400&fit=crop',
       href: '/categories/watches',
@@ -42,7 +42,7 @@ const CategoryGrid = () => {
     },
     {
       id: 4,
-      name: 'Luxury Accessories',
+      name: 'Premium Accessories',
       description: 'The perfect finishing touches for any ensemble',
       image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&h=400&fit=crop',
       href: '/categories/accessories',
@@ -72,7 +72,7 @@ const CategoryGrid = () => {
               />
               
               {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-luxury-black via-luxury-black/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-t from-premium-black via-premium-black/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
               
               {/* Gold Accent Line */}
               <motion.div
@@ -80,7 +80,7 @@ const CategoryGrid = () => {
                 whileInView={{ width: '100%' }}
                 transition={{ duration: 1, delay: index * 0.2 }}
                 viewport={{ once: true }}
-                className="absolute bottom-0 left-0 h-1 bg-luxury-gold"
+                className="absolute bottom-0 left-0 h-1 bg-premium-gold"
               />
             </div>
 
@@ -92,14 +92,14 @@ const CategoryGrid = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 + 0.3 }}
                   viewport={{ once: true }}
-                  className="text-luxury-gold text-sm font-poppins font-medium tracking-wider uppercase"
+                  className="text-premium-gold text-sm font-poppins font-medium tracking-wider uppercase"
                 >
                   {category.productCount} Products
                 </motion.span>
                 
                 <motion.div
                   whileHover={{ x: 5 }}
-                  className="text-luxury-gold"
+                  className="text-premium-gold"
                 >
                   <ArrowRight size={20} />
                 </motion.div>
@@ -110,7 +110,7 @@ const CategoryGrid = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 + 0.4 }}
                 viewport={{ once: true }}
-                className="text-2xl md:text-3xl font-montserrat font-bold text-white mb-3 group-hover:text-luxury-gold transition-colors duration-300"
+                className="text-2xl md:text-3xl font-montserrat font-bold text-white mb-3 group-hover:text-premium-gold transition-colors duration-300"
               >
                 {category.name}
               </motion.h3>
@@ -133,7 +133,7 @@ const CategoryGrid = () => {
                 transition={{ duration: 0.3 }}
                 className="mt-6 opacity-0 group-hover:opacity-100"
               >
-                <span className="inline-flex items-center gap-2 text-luxury-gold font-poppins font-medium tracking-wide uppercase text-sm">
+                <span className="inline-flex items-center gap-2 text-premium-gold font-poppins font-medium tracking-wide uppercase text-sm">
                   Explore Collection
                   <ArrowRight size={16} />
                 </span>
@@ -142,7 +142,7 @@ const CategoryGrid = () => {
 
             {/* Shimmer Effect */}
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-luxury-gold/10 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-premium-gold/10 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
             </div>
           </Link>
         </motion.div>

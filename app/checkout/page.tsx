@@ -7,7 +7,7 @@ import Checkout from '@/components/Checkout'
 
 export default function CheckoutPage() {
   return (
-    <div className="min-h-screen bg-luxury-black">
+    <div className="min-h-screen bg-premium-black">
       <Header />
       
       <main className="pt-20">
@@ -20,11 +20,11 @@ export default function CheckoutPage() {
         >
           <div className="container mx-auto px-4">
             <div className="text-center">
-              <h1 className="text-4xl md:text-5xl font-montserrat font-bold text-luxury-gold mb-4">
+              <h1 className="text-4xl md:text-5xl font-montserrat font-bold text-premium-gold mb-4">
                 Secure Checkout
               </h1>
               <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-                Complete your luxury shopping experience with our secure, encrypted checkout process
+                Complete your premium shopping experience with our secure, encrypted checkout process
               </p>
             </div>
           </div>

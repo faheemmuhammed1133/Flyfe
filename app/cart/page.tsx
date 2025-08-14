@@ -43,7 +43,7 @@ export default function CartPage() {
 
   if (state.items.length === 0) {
     return (
-      <div className="min-h-screen bg-luxury-black">
+      <div className="min-h-screen bg-premium-black">
         <Header />
         
         <main className="pt-20">
@@ -60,7 +60,7 @@ export default function CartPage() {
                   Your Cart is Empty
                 </h1>
                 <p className="text-gray-400 text-lg mb-8">
-                  Discover our luxury collection and add your favorite items to your cart
+                  Discover our premium collection and add your favorite items to your cart
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -68,7 +68,7 @@ export default function CartPage() {
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.98 }}
-                      className="luxury-button px-8 py-3 flex items-center justify-center gap-2"
+                      className="premium-button px-8 py-3 flex items-center justify-center gap-2"
                     >
                       <ArrowLeft size={18} />
                       Continue Shopping
@@ -79,7 +79,7 @@ export default function CartPage() {
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.98 }}
-                      className="px-8 py-3 border border-luxury-gold text-luxury-gold hover:bg-luxury-gold hover:text-luxury-black transition-all duration-300 flex items-center justify-center gap-2"
+                      className="px-8 py-3 border border-premium-gold text-premium-gold hover:bg-premium-gold hover:text-premium-black transition-all duration-300 flex items-center justify-center gap-2"
                     >
                       Browse Catalog
                       <ArrowRight size={18} />
@@ -97,7 +97,7 @@ export default function CartPage() {
   }
 
   return (
-    <div className="min-h-screen bg-luxury-black">
+    <div className="min-h-screen bg-premium-black">
       <Header />
       
       <main className="pt-20">
@@ -111,7 +111,7 @@ export default function CartPage() {
           <div className="container mx-auto px-4">
             <div className="flex items-center justify-between">
               <div>
-                <h1 className="text-3xl md:text-4xl font-montserrat font-bold text-luxury-gold mb-2">
+                <h1 className="text-3xl md:text-4xl font-montserrat font-bold text-premium-gold mb-2">
                   Shopping Cart
                 </h1>
                 <p className="text-gray-300">
@@ -123,7 +123,7 @@ export default function CartPage() {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.98 }}
-                  className="flex items-center gap-2 text-luxury-gold hover:text-white transition-colors duration-300"
+                  className="flex items-center gap-2 text-premium-gold hover:text-white transition-colors duration-300"
                 >
                   <ArrowLeft size={18} />
                   Continue Shopping
@@ -167,7 +167,7 @@ export default function CartPage() {
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.4, delay: index * 0.1 }}
-                      className="bg-charcoal border border-dark-gray p-6 hover:border-luxury-gold/30 transition-all duration-300"
+                      className="bg-charcoal border border-dark-gray p-6 hover:border-premium-gold/30 transition-all duration-300"
                     >
                       <div className="flex gap-6">
                         {/* Product Image */}
@@ -187,7 +187,7 @@ export default function CartPage() {
                           <div className="flex items-start justify-between mb-2">
                             <div>
                               <Link href={`/products/${item.id}`}>
-                                <h3 className="font-poppins font-semibold text-white hover:text-luxury-gold transition-colors duration-300 cursor-pointer">
+                                <h3 className="font-poppins font-semibold text-white hover:text-premium-gold transition-colors duration-300 cursor-pointer">
                                   {item.name}
                                 </h3>
                               </Link>
@@ -217,7 +217,7 @@ export default function CartPage() {
                           {/* Price and Quantity */}
                           <div className="flex items-center justify-between">
                             <div className="flex items-center gap-2">
-                              <span className="text-luxury-gold font-bold text-lg">
+                              <span className="text-premium-gold font-bold text-lg">
                                 ${item.price.toLocaleString()}
                               </span>
                               {item.originalPrice && (
@@ -233,7 +233,7 @@ export default function CartPage() {
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.95 }}
                                 onClick={() => handleMoveToWishlist(item.id)}
-                                className="p-2 text-gray-400 hover:text-luxury-gold transition-colors duration-300"
+                                className="p-2 text-gray-400 hover:text-premium-gold transition-colors duration-300"
                                 title="Move to wishlist"
                               >
                                 <Heart size={16} />
@@ -245,7 +245,7 @@ export default function CartPage() {
                                   whileHover={{ scale: 1.1 }}
                                   whileTap={{ scale: 0.95 }}
                                   onClick={() => handleQuantityChange(item.id, item.quantity - 1)}
-                                  className="w-8 h-8 flex items-center justify-center bg-dark-gray hover:bg-luxury-gold hover:text-luxury-black text-white transition-all duration-300"
+                                  className="w-8 h-8 flex items-center justify-center bg-dark-gray hover:bg-premium-gold hover:text-premium-black text-white transition-all duration-300"
                                 >
                                   <Minus size={14} />
                                 </motion.button>
@@ -258,7 +258,7 @@ export default function CartPage() {
                                   whileHover={{ scale: 1.1 }}
                                   whileTap={{ scale: 0.95 }}
                                   onClick={() => handleQuantityChange(item.id, item.quantity + 1)}
-                                  className="w-8 h-8 flex items-center justify-center bg-dark-gray hover:bg-luxury-gold hover:text-luxury-black text-white transition-all duration-300"
+                                  className="w-8 h-8 flex items-center justify-center bg-dark-gray hover:bg-premium-gold hover:text-premium-black text-white transition-all duration-300"
                                 >
                                   <Plus size={14} />
                                 </motion.button>
@@ -308,7 +308,7 @@ export default function CartPage() {
                     </div>
                     
                     <div className="border-t border-dark-gray pt-4">
-                      <div className="flex justify-between text-lg font-bold text-luxury-gold">
+                      <div className="flex justify-between text-lg font-bold text-premium-gold">
                         <span>Total</span>
                         <span>${state.total.toFixed(2)}</span>
                       </div>
@@ -317,16 +317,16 @@ export default function CartPage() {
 
                   {/* Free Shipping Progress */}
                   {state.shipping > 0 && (
-                    <div className="mb-6 p-4 bg-luxury-black border border-dark-gray">
+                    <div className="mb-6 p-4 bg-premium-black border border-dark-gray">
                       <div className="flex items-center gap-2 mb-2">
-                        <Truck className="text-luxury-gold" size={16} />
+                        <Truck className="text-premium-gold" size={16} />
                         <span className="text-sm text-gray-300">
                           Add ${(500 - state.subtotal).toFixed(2)} more for free shipping
                         </span>
                       </div>
                       <div className="w-full bg-dark-gray h-2">
                         <div 
-                          className="bg-luxury-gold h-2 transition-all duration-300"
+                          className="bg-premium-gold h-2 transition-all duration-300"
                           style={{ width: `${Math.min((state.subtotal / 500) * 100, 100)}%` }}
                         />
                       </div>
@@ -338,7 +338,7 @@ export default function CartPage() {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={() => router.push('/checkout')}
-                    className="w-full luxury-button px-6 py-4 text-lg flex items-center justify-center gap-3 mb-4"
+                    className="w-full premium-button px-6 py-4 text-lg flex items-center justify-center gap-3 mb-4"
                   >
                     Secure Checkout
                     <ArrowRight size={20} />
@@ -355,7 +355,7 @@ export default function CartPage() {
                       <span>30-day return policy</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Truck size={16} className="text-luxury-gold" />
+                      <Truck size={16} className="text-premium-gold" />
                       <span>Free shipping on orders over $500</span>
                     </div>
                   </div>

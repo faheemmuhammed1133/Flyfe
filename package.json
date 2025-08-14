@@ -1,7 +1,7 @@
 {
   "name": "flyfe-ecommerce",
   "version": "1.0.0",
-  "description": "Luxury Black & Gold E-Commerce Platform",
+  "description": "Premium Black & Gold E-Commerce Platform",
   "private": true,
   "scripts": {
     "dev": "next dev",

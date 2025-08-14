@@ -1,11 +1,11 @@
-# Flyfe - Luxury E-Commerce Platform
+# Flyfe - Premium E-Commerce Platform
 
 A premium black & gold e-commerce experience built with Next.js 14, featuring cinematic animations, world-class UX, and bulletproof performance.
 
 ## 🌟 Features
 
 ### Design & UX
-- **Luxury Black & Gold Theme** - Deep black (#000000) with gold accents (#FFD700)
+- **Premium Black & Gold Theme** - Deep black (#000000) with gold accents (#FFD700)
 - **Cinematic Loading Experience** - Immersive gold particle animations
 - **Smooth Animations** - Framer Motion + GSAP for premium interactions
 - **Responsive Design** - Perfect on all devices
@@ -24,7 +24,7 @@ A premium black & gold e-commerce experience built with Next.js 14, featuring ci
 - **Featured Products** - Premium product showcase
 - **Product Detail Pages** - Zoomable images, reviews, specifications
 - **Shopping Cart** - Slide-out sidebar with item management
-- **Wishlist** - Save and manage favorite luxury items
+- **Wishlist** - Save and manage favorite premium items
 - **User Authentication** - Login, register, password reset modals
 - **Product Catalog** - Advanced filtering and search
 - **Checkout Flow** - Multi-step secure payment process
@@ -64,7 +64,7 @@ Navigate to [http://localhost:3000](http://localhost:3000)
 - **Lucide React** - Premium icons
 
 ### Styling
-- **Custom Design System** - Luxury black & gold theme
+- **Custom Design System** - Premium black & gold theme
 - **Responsive Grid** - Mobile-first approach
 - **Custom Animations** - Gold shimmer effects
 - **Typography** - Montserrat & Poppins fonts
@@ -94,7 +94,7 @@ flyfe-ecommerce/
 
 ### Colors
 - **Primary Black**: #000000
-- **Luxury Gold**: #FFD700
+- **Premium Gold**: #FFD700
 - **Charcoal**: #1C1C1C
 - **Dark Gray**: #2D2D2D
 - **Gold Light**: #FFF8DC
@@ -103,7 +103,7 @@ flyfe-ecommerce/
 ### Typography
 - **Headings**: Montserrat (300-900)
 - **Body**: Poppins (300-900)
-- **Tracking**: Wide letter spacing for luxury feel
+- **Tracking**: Wide letter spacing for premium feel
 
 ### Animations
 - **Gold Shimmer**: 2s infinite shimmer effect
@@ -186,4 +186,4 @@ Copyright © 2024 Flyfe. All rights reserved.
 
 ---
 
-**Built with ❤️ for luxury e-commerce excellence**
+**Built with ❤️ for premium e-commerce excellence**

@@ -51,7 +51,7 @@ const PersonalizedRecommendations = ({
       brand: 'Flyfe Elite',
       isSale: true,
       discount: 14,
-      recommendationReason: 'Based on your luxury jewelry preferences'
+      recommendationReason: 'Based on your premium jewelry preferences'
     },
     {
       id: 202,
@@ -154,7 +154,7 @@ const PersonalizedRecommendations = ({
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.3, delay: index * 0.1 + 0.3 }}
-            className="bg-luxury-gold/90 text-luxury-black px-2 py-1 text-xs font-bold uppercase tracking-wide backdrop-blur-sm"
+            className="bg-premium-gold/90 text-premium-black px-2 py-1 text-xs font-bold uppercase tracking-wide backdrop-blur-sm"
           >
             Recommended
           </motion.div>
@@ -187,7 +187,7 @@ const PersonalizedRecommendations = ({
           <motion.div
             initial={{ opacity: 0 }}
             whileHover={{ opacity: 1 }}
-            className="absolute inset-0 bg-luxury-black/50 flex items-center justify-center transition-opacity duration-300"
+            className="absolute inset-0 bg-premium-black/50 flex items-center justify-center transition-opacity duration-300"
           >
             <div className="flex gap-3">
               <motion.button
@@ -200,7 +200,7 @@ const PersonalizedRecommendations = ({
                   e.stopPropagation()
                   // Add to cart logic
                 }}
-                className="luxury-button px-4 py-2 flex items-center gap-2"
+                className="premium-button px-4 py-2 flex items-center gap-2"
               >
                 <ShoppingBag size={14} />
                 Add
@@ -216,7 +216,7 @@ const PersonalizedRecommendations = ({
                   e.stopPropagation()
                   // Add to wishlist logic
                 }}
-                className="p-2 bg-luxury-black/70 hover:bg-luxury-gold hover:text-luxury-black text-white rounded-full transition-all duration-300"
+                className="p-2 bg-premium-black/70 hover:bg-premium-gold hover:text-premium-black text-white rounded-full transition-all duration-300"
               >
                 <Heart size={14} />
               </motion.button>
@@ -225,7 +225,7 @@ const PersonalizedRecommendations = ({
 
           {/* Gold Shimmer Effect */}
           <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-luxury-gold/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-premium-gold/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
           </div>
         </div>
 
@@ -237,7 +237,7 @@ const PersonalizedRecommendations = ({
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.4, delay: index * 0.1 + 0.2 }}
             viewport={{ once: true }}
-            className="text-luxury-gold text-xs font-poppins font-medium mb-2 italic"
+            className="text-premium-gold text-xs font-poppins font-medium mb-2 italic"
           >
             {product.recommendationReason}
           </motion.p>
@@ -260,7 +260,7 @@ const PersonalizedRecommendations = ({
                 size={12}
                 className={`${
                   i < Math.floor(product.rating)
-                    ? 'text-luxury-gold fill-current'
+                    ? 'text-premium-gold fill-current'
                     : 'text-gray-600'
                 }`}
               />
@@ -276,7 +276,7 @@ const PersonalizedRecommendations = ({
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: index * 0.1 + 0.4 }}
             viewport={{ once: true }}
-            className="font-poppins font-semibold text-white mb-3 group-hover:text-luxury-gold transition-colors duration-300 leading-tight line-clamp-2"
+            className="font-poppins font-semibold text-white mb-3 group-hover:text-premium-gold transition-colors duration-300 leading-tight line-clamp-2"
           >
             {product.name}
           </motion.h3>
@@ -289,7 +289,7 @@ const PersonalizedRecommendations = ({
             viewport={{ once: true }}
             className="flex items-center gap-2"
           >
-            <span className="text-luxury-gold font-bold text-lg">
+            <span className="text-premium-gold font-bold text-lg">
               ${product.price.toLocaleString()}
             </span>
             {product.originalPrice && (
@@ -311,7 +311,7 @@ const PersonalizedRecommendations = ({
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
-              className="w-12 h-12 border-2 border-luxury-gold border-t-transparent rounded-full mx-auto mb-4"
+              className="w-12 h-12 border-2 border-premium-gold border-t-transparent rounded-full mx-auto mb-4"
             />
             <p className="text-gray-300 font-poppins">
               Curating personalized recommendations for you...
@@ -333,9 +333,9 @@ const PersonalizedRecommendations = ({
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center gap-2 bg-luxury-gold/10 border border-luxury-gold/30 rounded-full px-6 py-2 mb-6">
-            <Sparkles size={16} className="text-luxury-gold" />
-            <span className="text-luxury-gold font-poppins font-medium text-sm tracking-wider uppercase">
+          <div className="inline-flex items-center gap-2 bg-premium-gold/10 border border-premium-gold/30 rounded-full px-6 py-2 mb-6">
+            <Sparkles size={16} className="text-premium-gold" />
+            <span className="text-premium-gold font-poppins font-medium text-sm tracking-wider uppercase">
               Curated for You
             </span>
           </div>
@@ -344,7 +344,7 @@ const PersonalizedRecommendations = ({
             Personalized Recommendations
           </h2>
           <p className="text-gray-300 font-poppins max-w-2xl mx-auto">
-            Discover luxury pieces selected just for you based on your preferences, 
+            Discover premium pieces selected just for you based on your preferences, 
             browsing history, and style profile
           </p>
         </motion.div>
@@ -357,15 +357,15 @@ const PersonalizedRecommendations = ({
           viewport={{ once: true }}
           className="flex justify-center mb-12"
         >
-          <div className="flex bg-luxury-black border border-dark-gray rounded-none overflow-hidden">
+          <div className="flex bg-premium-black border border-dark-gray rounded-none overflow-hidden">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id as any)}
                 className={`flex items-center gap-2 px-6 py-3 font-poppins font-medium transition-all duration-300 ${
                   activeTab === tab.id
-                    ? 'bg-luxury-gold text-luxury-black'
-                    : 'text-gray-300 hover:text-luxury-gold hover:bg-luxury-gold/10'
+                    ? 'bg-premium-gold text-premium-black'
+                    : 'text-gray-300 hover:text-premium-gold hover:bg-premium-gold/10'
                 }`}
               >
                 <tab.icon size={16} />
@@ -390,19 +390,19 @@ const PersonalizedRecommendations = ({
           viewport={{ once: true }}
           className="mt-16 text-center"
         >
-          <div className="bg-luxury-black/50 border border-luxury-gold/20 rounded-none p-8 max-w-2xl mx-auto">
-            <h3 className="text-xl font-montserrat font-semibold text-luxury-gold mb-4">
+          <div className="bg-premium-black/50 border border-premium-gold/20 rounded-none p-8 max-w-2xl mx-auto">
+            <h3 className="text-xl font-montserrat font-semibold text-premium-gold mb-4">
               Your Style Profile
             </h3>
             <p className="text-gray-300 font-poppins mb-6">
-              Based on your activity, you prefer luxury jewelry and premium accessories. 
+              Based on your activity, you prefer premium jewelry and premium accessories. 
               You value craftsmanship and tend to invest in timeless pieces.
             </p>
             <Link href="/profile/preferences">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
-                className="luxury-button px-6 py-2 text-sm"
+                className="premium-button px-6 py-2 text-sm"
               >
                 Refine Preferences
               </motion.button>

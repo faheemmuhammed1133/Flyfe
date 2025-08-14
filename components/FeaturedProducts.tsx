@@ -104,7 +104,7 @@ const FeaturedProducts = () => {
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.3, delay: index * 0.1 + 0.5 }}
-            className="bg-luxury-gold text-luxury-black px-3 py-1 text-xs font-bold uppercase tracking-wide"
+            className="bg-premium-gold text-premium-black px-3 py-1 text-xs font-bold uppercase tracking-wide"
           >
             New
           </motion.span>
@@ -126,7 +126,7 @@ const FeaturedProducts = () => {
         <motion.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
-          className="p-2 bg-luxury-black/70 backdrop-blur-sm rounded-full text-white hover:text-luxury-gold hover:bg-luxury-gold/20 transition-all duration-300"
+          className="p-2 bg-premium-black/70 backdrop-blur-sm rounded-full text-white hover:text-premium-gold hover:bg-premium-gold/20 transition-all duration-300"
           aria-label="Add to wishlist"
         >
           <Heart size={16} />
@@ -135,7 +135,7 @@ const FeaturedProducts = () => {
         <motion.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
-          className="p-2 bg-luxury-black/70 backdrop-blur-sm rounded-full text-white hover:text-luxury-gold hover:bg-luxury-gold/20 transition-all duration-300"
+          className="p-2 bg-premium-black/70 backdrop-blur-sm rounded-full text-white hover:text-premium-gold hover:bg-premium-gold/20 transition-all duration-300"
           aria-label="Quick view"
         >
           <Eye size={16} />
@@ -155,14 +155,14 @@ const FeaturedProducts = () => {
         <motion.div
           initial={{ opacity: 0 }}
           whileHover={{ opacity: 1 }}
-          className="absolute inset-0 bg-luxury-black/50 flex items-center justify-center transition-opacity duration-300"
+          className="absolute inset-0 bg-premium-black/50 flex items-center justify-center transition-opacity duration-300"
         >
           <motion.button
             initial={{ scale: 0, opacity: 0 }}
             whileHover={{ scale: 1, opacity: 1 }}
             whileTap={{ scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="luxury-button px-6 py-3 flex items-center gap-2"
+            className="premium-button px-6 py-3 flex items-center gap-2"
           >
             <ShoppingBag size={16} />
             Add to Cart
@@ -171,7 +171,7 @@ const FeaturedProducts = () => {
 
         {/* Gold Shimmer Effect */}
         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-luxury-gold/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-premium-gold/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
         </div>
       </div>
 
@@ -183,7 +183,7 @@ const FeaturedProducts = () => {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.4, delay: index * 0.1 + 0.3 }}
           viewport={{ once: true }}
-          className="text-luxury-gold text-xs font-poppins font-medium tracking-wider uppercase mb-2 block"
+          className="text-premium-gold text-xs font-poppins font-medium tracking-wider uppercase mb-2 block"
         >
           {product.category}
         </motion.span>
@@ -196,7 +196,7 @@ const FeaturedProducts = () => {
               size={14}
               className={`${
                 i < Math.floor(product.rating)
-                  ? 'text-luxury-gold fill-current'
+                  ? 'text-premium-gold fill-current'
                   : 'text-gray-600'
               }`}
             />
@@ -212,7 +212,7 @@ const FeaturedProducts = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: index * 0.1 + 0.4 }}
           viewport={{ once: true }}
-          className="font-poppins font-semibold text-white mb-4 group-hover:text-luxury-gold transition-colors duration-300 text-lg leading-tight"
+          className="font-poppins font-semibold text-white mb-4 group-hover:text-premium-gold transition-colors duration-300 text-lg leading-tight"
         >
           {product.name}
         </motion.h3>
@@ -225,7 +225,7 @@ const FeaturedProducts = () => {
           viewport={{ once: true }}
           className="flex items-center gap-3"
         >
-          <span className="text-luxury-gold font-bold text-xl">
+          <span className="text-premium-gold font-bold text-xl">
             ${product.price.toLocaleString()}
           </span>
           {product.originalPrice && (

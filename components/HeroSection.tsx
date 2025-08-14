@@ -63,7 +63,7 @@ const HeroSection = () => {
         {Array.from({ length: 30 }).map((_, i) => (
           <div
             key={i}
-            className="hero-particle absolute bg-luxury-gold rounded-full opacity-20"
+            className="hero-particle absolute bg-premium-gold rounded-full opacity-20"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -78,7 +78,7 @@ const HeroSection = () => {
       {/* Parallax Background */}
       <motion.div
         style={{ y }}
-        className="absolute inset-0 bg-gradient-to-b from-luxury-black via-charcoal/50 to-luxury-black"
+        className="absolute inset-0 bg-gradient-to-b from-premium-black via-charcoal/50 to-premium-black"
       />
 
       {/* Main Content */}
@@ -91,11 +91,11 @@ const HeroSection = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="inline-flex items-center gap-2 bg-luxury-gold/10 border border-luxury-gold/30 rounded-full px-6 py-2 mb-8"
+          className="inline-flex items-center gap-2 bg-premium-gold/10 border border-premium-gold/30 rounded-full px-6 py-2 mb-8"
         >
-          <Sparkles size={16} className="text-luxury-gold" />
-          <span className="text-luxury-gold font-poppins font-medium text-sm tracking-wider uppercase">
-            Luxury Collection 2024
+          <Sparkles size={16} className="text-premium-gold" />
+          <span className="text-premium-gold font-poppins font-medium text-sm tracking-wider uppercase">
+            Premium Collection 2024
           </span>
         </motion.div>
 
@@ -112,13 +112,13 @@ const HeroSection = () => {
             transition={{ duration: 1, delay: 1.2 }}
             className="block"
           >
-            Luxury
+            Premium
           </motion.span>
           <motion.span
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 1.5 }}
-            className="block text-luxury-gold gold-shimmer"
+            className="block text-premium-gold gold-shimmer"
           >
             Redefined
           </motion.span>
@@ -131,7 +131,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 1.8 }}
           className="text-xl md:text-2xl text-gray-300 font-poppins font-light mb-12 max-w-3xl mx-auto leading-relaxed"
         >
-          Experience the pinnacle of luxury shopping with our curated collection of 
+          Experience the pinnacle of premium shopping with our curated collection of 
           premium products, crafted for those who demand excellence.
         </motion.p>
 
@@ -148,7 +148,7 @@ const HeroSection = () => {
               boxShadow: '0 10px 30px rgba(255, 215, 0, 0.3)'
             }}
             whileTap={{ scale: 0.98 }}
-            className="luxury-button text-lg px-10 py-4"
+            className="premium-button text-lg px-10 py-4"
           >
             Explore Collection
           </motion.button>
@@ -156,7 +156,7 @@ const HeroSection = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
-            className="relative overflow-hidden bg-transparent border border-white text-white px-10 py-4 font-montserrat font-semibold tracking-wider uppercase transition-all duration-300 hover:bg-white hover:text-luxury-black text-lg"
+            className="relative overflow-hidden bg-transparent border border-white text-white px-10 py-4 font-montserrat font-semibold tracking-wider uppercase transition-all duration-300 hover:bg-white hover:text-premium-black text-lg"
           >
             Watch Story
           </motion.button>
@@ -181,7 +181,7 @@ const HeroSection = () => {
               transition={{ duration: 0.6, delay: 2.6 + index * 0.1 }}
               className="text-center"
             >
-              <div className="text-2xl md:text-3xl font-montserrat font-bold text-luxury-gold mb-2">
+              <div className="text-2xl md:text-3xl font-montserrat font-bold text-premium-gold mb-2">
                 {stat.number}
               </div>
               <div className="text-sm text-gray-400 font-poppins tracking-wide uppercase">
@@ -198,7 +198,7 @@ const HeroSection = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 3 }}
         onClick={scrollToContent}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-luxury-gold hover:text-gold-light transition-colors duration-300"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-premium-gold hover:text-gold-light transition-colors duration-300"
         aria-label="Scroll to content"
       >
         <motion.div
@@ -212,7 +212,7 @@ const HeroSection = () => {
       </motion.button>
 
       {/* Gradient Overlay */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-luxury-black to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-premium-black to-transparent" />
     </section>
   )
 }

@@ -148,7 +148,7 @@ const UserAuth = ({ isOpen, onClose, initialMode = 'login' }: UserAuthProps) => 
             type="email"
             value={formData.email}
             onChange={(e) => handleInputChange('email', e.target.value)}
-            className="luxury-input w-full pl-10"
+            className="premium-input w-full pl-10"
             placeholder="Enter your email"
             required
           />
@@ -165,14 +165,14 @@ const UserAuth = ({ isOpen, onClose, initialMode = 'login' }: UserAuthProps) => 
             type={showPassword ? 'text' : 'password'}
             value={formData.password}
             onChange={(e) => handleInputChange('password', e.target.value)}
-            className="luxury-input w-full pl-10 pr-10"
+            className="premium-input w-full pl-10 pr-10"
             placeholder="Enter your password"
             required
           />
           <button
             type="button"
             onClick={() => setShowPassword(!showPassword)}
-            className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-luxury-gold transition-colors duration-300"
+            className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-premium-gold transition-colors duration-300"
           >
             {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
           </button>
@@ -183,14 +183,14 @@ const UserAuth = ({ isOpen, onClose, initialMode = 'login' }: UserAuthProps) => 
         <label className="flex items-center gap-2 cursor-pointer">
           <input
             type="checkbox"
-            className="text-luxury-gold bg-luxury-black border-gray-600 rounded focus:ring-luxury-gold"
+            className="text-premium-gold bg-premium-black border-gray-600 rounded focus:ring-premium-gold"
           />
           <span className="text-sm text-gray-300">Remember me</span>
         </label>
         <button
           type="button"
           onClick={() => setMode('forgot')}
-          className="text-sm text-luxury-gold hover:text-gold-light transition-colors duration-300"
+          className="text-sm text-premium-gold hover:text-gold-light transition-colors duration-300"
         >
           Forgot password?
         </button>
@@ -201,13 +201,13 @@ const UserAuth = ({ isOpen, onClose, initialMode = 'login' }: UserAuthProps) => 
         whileTap={{ scale: 0.98 }}
         type="submit"
         disabled={isLoading}
-        className="w-full luxury-button px-6 py-3 flex items-center justify-center gap-2 disabled:opacity-50"
+        className="w-full premium-button px-6 py-3 flex items-center justify-center gap-2 disabled:opacity-50"
       >
         {isLoading ? (
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
-            className="w-5 h-5 border-2 border-luxury-black border-t-transparent rounded-full"
+            className="w-5 h-5 border-2 border-premium-black border-t-transparent rounded-full"
           />
         ) : (
           <>
@@ -222,7 +222,7 @@ const UserAuth = ({ isOpen, onClose, initialMode = 'login' }: UserAuthProps) => 
         <button
           type="button"
           onClick={() => setMode('register')}
-          className="text-luxury-gold hover:text-gold-light transition-colors duration-300 font-medium"
+          className="text-premium-gold hover:text-gold-light transition-colors duration-300 font-medium"
         >
           Create Account
         </button>
@@ -247,7 +247,7 @@ const UserAuth = ({ isOpen, onClose, initialMode = 'login' }: UserAuthProps) => 
             type="text"
             value={formData.firstName}
             onChange={(e) => handleInputChange('firstName', e.target.value)}
-            className="luxury-input w-full"
+            className="premium-input w-full"
             placeholder="First name"
             required
           />
@@ -260,7 +260,7 @@ const UserAuth = ({ isOpen, onClose, initialMode = 'login' }: UserAuthProps) => 
             type="text"
             value={formData.lastName}
             onChange={(e) => handleInputChange('lastName', e.target.value)}
-            className="luxury-input w-full"
+            className="premium-input w-full"
             placeholder="Last name"
             required
           />
@@ -277,7 +277,7 @@ const UserAuth = ({ isOpen, onClose, initialMode = 'login' }: UserAuthProps) => 
             type="email"
             value={formData.email}
             onChange={(e) => handleInputChange('email', e.target.value)}
-            className="luxury-input w-full pl-10"
+            className="premium-input w-full pl-10"
             placeholder="Enter your email"
             required
           />
@@ -294,7 +294,7 @@ const UserAuth = ({ isOpen, onClose, initialMode = 'login' }: UserAuthProps) => 
             type="tel"
             value={formData.phone}
             onChange={(e) => handleInputChange('phone', e.target.value)}
-            className="luxury-input w-full pl-10"
+            className="premium-input w-full pl-10"
             placeholder="Enter your phone"
           />
         </div>
@@ -310,14 +310,14 @@ const UserAuth = ({ isOpen, onClose, initialMode = 'login' }: UserAuthProps) => 
             type={showPassword ? 'text' : 'password'}
             value={formData.password}
             onChange={(e) => handleInputChange('password', e.target.value)}
-            className="luxury-input w-full pl-10 pr-10"
+            className="premium-input w-full pl-10 pr-10"
             placeholder="Create password"
             required
           />
           <button
             type="button"
             onClick={() => setShowPassword(!showPassword)}
-            className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-luxury-gold transition-colors duration-300"
+            className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-premium-gold transition-colors duration-300"
           >
             {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
           </button>
@@ -334,7 +334,7 @@ const UserAuth = ({ isOpen, onClose, initialMode = 'login' }: UserAuthProps) => 
             type="password"
             value={formData.confirmPassword}
             onChange={(e) => handleInputChange('confirmPassword', e.target.value)}
-            className="luxury-input w-full pl-10"
+            className="premium-input w-full pl-10"
             placeholder="Confirm password"
             required
           />
@@ -347,16 +347,16 @@ const UserAuth = ({ isOpen, onClose, initialMode = 'login' }: UserAuthProps) => 
             type="checkbox"
             checked={formData.agreeToTerms}
             onChange={(e) => handleInputChange('agreeToTerms', e.target.checked)}
-            className="text-luxury-gold bg-luxury-black border-gray-600 rounded focus:ring-luxury-gold mt-1"
+            className="text-premium-gold bg-premium-black border-gray-600 rounded focus:ring-premium-gold mt-1"
             required
           />
           <span className="text-sm text-gray-300 leading-relaxed">
             I agree to the{' '}
-            <a href="/terms" className="text-luxury-gold hover:text-gold-light">
+            <a href="/terms" className="text-premium-gold hover:text-gold-light">
               Terms of Service
             </a>{' '}
             and{' '}
-            <a href="/privacy" className="text-luxury-gold hover:text-gold-light">
+            <a href="/privacy" className="text-premium-gold hover:text-gold-light">
               Privacy Policy
             </a>
           </span>
@@ -367,7 +367,7 @@ const UserAuth = ({ isOpen, onClose, initialMode = 'login' }: UserAuthProps) => 
             type="checkbox"
             checked={formData.newsletter}
             onChange={(e) => handleInputChange('newsletter', e.target.checked)}
-            className="text-luxury-gold bg-luxury-black border-gray-600 rounded focus:ring-luxury-gold"
+            className="text-premium-gold bg-premium-black border-gray-600 rounded focus:ring-premium-gold"
           />
           <span className="text-sm text-gray-300">
             Subscribe to our newsletter for exclusive offers
@@ -380,13 +380,13 @@ const UserAuth = ({ isOpen, onClose, initialMode = 'login' }: UserAuthProps) => 
         whileTap={{ scale: 0.98 }}
         type="submit"
         disabled={isLoading || !formData.agreeToTerms}
-        className="w-full luxury-button px-6 py-3 flex items-center justify-center gap-2 disabled:opacity-50"
+        className="w-full premium-button px-6 py-3 flex items-center justify-center gap-2 disabled:opacity-50"
       >
         {isLoading ? (
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
-            className="w-5 h-5 border-2 border-luxury-black border-t-transparent rounded-full"
+            className="w-5 h-5 border-2 border-premium-black border-t-transparent rounded-full"
           />
         ) : (
           <>
@@ -401,7 +401,7 @@ const UserAuth = ({ isOpen, onClose, initialMode = 'login' }: UserAuthProps) => 
         <button
           type="button"
           onClick={() => setMode('login')}
-          className="text-luxury-gold hover:text-gold-light transition-colors duration-300 font-medium"
+          className="text-premium-gold hover:text-gold-light transition-colors duration-300 font-medium"
         >
           Sign In
         </button>
@@ -433,7 +433,7 @@ const UserAuth = ({ isOpen, onClose, initialMode = 'login' }: UserAuthProps) => 
             type="email"
             value={formData.email}
             onChange={(e) => handleInputChange('email', e.target.value)}
-            className="luxury-input w-full pl-10"
+            className="premium-input w-full pl-10"
             placeholder="Enter your email"
             required
           />
@@ -445,13 +445,13 @@ const UserAuth = ({ isOpen, onClose, initialMode = 'login' }: UserAuthProps) => 
         whileTap={{ scale: 0.98 }}
         type="submit"
         disabled={isLoading}
-        className="w-full luxury-button px-6 py-3 flex items-center justify-center gap-2 disabled:opacity-50"
+        className="w-full premium-button px-6 py-3 flex items-center justify-center gap-2 disabled:opacity-50"
       >
         {isLoading ? (
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
-            className="w-5 h-5 border-2 border-luxury-black border-t-transparent rounded-full"
+            className="w-5 h-5 border-2 border-premium-black border-t-transparent rounded-full"
           />
         ) : (
           <>
@@ -465,7 +465,7 @@ const UserAuth = ({ isOpen, onClose, initialMode = 'login' }: UserAuthProps) => 
         <button
           type="button"
           onClick={() => setMode('login')}
-          className="text-luxury-gold hover:text-gold-light transition-colors duration-300 font-medium"
+          className="text-premium-gold hover:text-gold-light transition-colors duration-300 font-medium"
         >
           Back to Sign In
         </button>
@@ -483,9 +483,9 @@ const UserAuth = ({ isOpen, onClose, initialMode = 'login' }: UserAuthProps) => 
 
   const getSubtitle = () => {
     switch (mode) {
-      case 'register': return 'Join the Flyfe luxury community'
+      case 'register': return 'Join the Flyfe premium community'
       case 'forgot': return 'We\'ll help you get back in'
-      default: return 'Sign in to your luxury account'
+      default: return 'Sign in to your premium account'
     }
   }
 
@@ -499,7 +499,7 @@ const UserAuth = ({ isOpen, onClose, initialMode = 'login' }: UserAuthProps) => 
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-luxury-black/80 backdrop-blur-sm z-50"
+            className="fixed inset-0 bg-premium-black/80 backdrop-blur-sm z-50"
           />
 
           {/* Modal */}
@@ -509,11 +509,11 @@ const UserAuth = ({ isOpen, onClose, initialMode = 'login' }: UserAuthProps) => 
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             className="fixed inset-0 z-50 flex items-center justify-center p-4"
           >
-            <div className="bg-luxury-black border border-luxury-gold/20 rounded-none w-full max-w-md max-h-[90vh] overflow-y-auto">
+            <div className="bg-premium-black border border-premium-gold/20 rounded-none w-full max-w-md max-h-[90vh] overflow-y-auto">
               {/* Header */}
               <div className="flex items-center justify-between p-6 border-b border-dark-gray">
                 <div>
-                  <h2 className="text-2xl font-montserrat font-bold text-luxury-gold">
+                  <h2 className="text-2xl font-montserrat font-bold text-premium-gold">
                     {getTitle()}
                   </h2>
                   <p className="text-gray-400 font-poppins text-sm mt-1">
@@ -524,7 +524,7 @@ const UserAuth = ({ isOpen, onClose, initialMode = 'login' }: UserAuthProps) => 
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={onClose}
-                  className="p-2 text-gray-400 hover:text-luxury-gold transition-colors duration-300"
+                  className="p-2 text-gray-400 hover:text-premium-gold transition-colors duration-300"
                 >
                   <X size={20} />
                 </motion.button>
@@ -547,12 +547,12 @@ const UserAuth = ({ isOpen, onClose, initialMode = 'login' }: UserAuthProps) => 
                       <div className="w-full border-t border-dark-gray" />
                     </div>
                     <div className="relative flex justify-center text-sm">
-                      <span className="px-2 bg-luxury-black text-gray-400">Or continue with</span>
+                      <span className="px-2 bg-premium-black text-gray-400">Or continue with</span>
                     </div>
                   </div>
 
                   <div className="mt-6 grid grid-cols-2 gap-3">
-                    <button className="w-full inline-flex justify-center py-2 px-4 border border-gray-600 rounded-none bg-charcoal text-sm font-medium text-gray-300 hover:bg-dark-gray hover:border-luxury-gold transition-all duration-300">
+                    <button className="w-full inline-flex justify-center py-2 px-4 border border-gray-600 rounded-none bg-charcoal text-sm font-medium text-gray-300 hover:bg-dark-gray hover:border-premium-gold transition-all duration-300">
                       <svg className="w-5 h-5" viewBox="0 0 24 24">
                         <path fill="currentColor" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
                         <path fill="currentColor" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
@@ -562,7 +562,7 @@ const UserAuth = ({ isOpen, onClose, initialMode = 'login' }: UserAuthProps) => 
                       <span className="ml-2">Google</span>
                     </button>
 
-                    <button className="w-full inline-flex justify-center py-2 px-4 border border-gray-600 rounded-none bg-charcoal text-sm font-medium text-gray-300 hover:bg-dark-gray hover:border-luxury-gold transition-all duration-300">
+                    <button className="w-full inline-flex justify-center py-2 px-4 border border-gray-600 rounded-none bg-charcoal text-sm font-medium text-gray-300 hover:bg-dark-gray hover:border-premium-gold transition-all duration-300">
                       <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                       </svg>

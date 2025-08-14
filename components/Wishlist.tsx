@@ -95,7 +95,7 @@ const Wishlist = ({ isOpen, onClose }: WishlistProps) => {
     if (navigator.share) {
       navigator.share({
         title: item.name,
-        text: `Check out this luxury item from Flyfe: ${item.name}`,
+        text: `Check out this premium item from Flyfe: ${item.name}`,
         url: `/products/${item.id}`
       })
     } else {
@@ -137,7 +137,7 @@ const Wishlist = ({ isOpen, onClose }: WishlistProps) => {
             />
             
             {/* Overlay */}
-            <div className="absolute inset-0 bg-luxury-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <div className="absolute inset-0 bg-premium-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
               <motion.div
                 initial={{ scale: 0 }}
                 whileHover={{ scale: 1 }}
@@ -148,7 +148,7 @@ const Wishlist = ({ isOpen, onClose }: WishlistProps) => {
                     e.preventDefault()
                     // Quick view logic
                   }}
-                  className="p-2 bg-luxury-black/70 hover:bg-luxury-gold hover:text-luxury-black text-white rounded-full transition-all duration-300"
+                  className="p-2 bg-premium-black/70 hover:bg-premium-gold hover:text-premium-black text-white rounded-full transition-all duration-300"
                   title="Quick view"
                 >
                   <Eye size={16} />
@@ -158,7 +158,7 @@ const Wishlist = ({ isOpen, onClose }: WishlistProps) => {
                     e.preventDefault()
                     shareItem(item)
                   }}
-                  className="p-2 bg-luxury-black/70 hover:bg-luxury-gold hover:text-luxury-black text-white rounded-full transition-all duration-300"
+                  className="p-2 bg-premium-black/70 hover:bg-premium-gold hover:text-premium-black text-white rounded-full transition-all duration-300"
                   title="Share"
                 >
                   <Share2 size={16} />
@@ -171,7 +171,7 @@ const Wishlist = ({ isOpen, onClose }: WishlistProps) => {
         {/* Product Badges */}
         <div className="absolute top-3 left-3 flex flex-col gap-2">
           {item.isNew && (
-            <span className="bg-luxury-gold text-luxury-black px-2 py-1 text-xs font-bold uppercase tracking-wide">
+            <span className="bg-premium-gold text-premium-black px-2 py-1 text-xs font-bold uppercase tracking-wide">
               New
             </span>
           )}
@@ -192,7 +192,7 @@ const Wishlist = ({ isOpen, onClose }: WishlistProps) => {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => removeFromWishlist(item.id)}
-          className="absolute top-3 right-3 p-2 bg-luxury-black/70 hover:bg-red-600 text-white rounded-full transition-all duration-300 opacity-0 group-hover:opacity-100"
+          className="absolute top-3 right-3 p-2 bg-premium-black/70 hover:bg-red-600 text-white rounded-full transition-all duration-300 opacity-0 group-hover:opacity-100"
           title="Remove from wishlist"
         >
           <Trash2 size={16} />
@@ -203,7 +203,7 @@ const Wishlist = ({ isOpen, onClose }: WishlistProps) => {
       <div className="p-4">
         {/* Brand & Category */}
         <div className="flex items-center justify-between mb-2">
-          <span className="text-luxury-gold text-xs font-poppins font-medium tracking-wider uppercase">
+          <span className="text-premium-gold text-xs font-poppins font-medium tracking-wider uppercase">
             {item.brand}
           </span>
           <span className="text-gray-500 text-xs uppercase">
@@ -219,7 +219,7 @@ const Wishlist = ({ isOpen, onClose }: WishlistProps) => {
               size={12}
               className={`${
                 i < Math.floor(item.rating)
-                  ? 'text-luxury-gold fill-current'
+                  ? 'text-premium-gold fill-current'
                   : 'text-gray-600'
               }`}
             />
@@ -231,14 +231,14 @@ const Wishlist = ({ isOpen, onClose }: WishlistProps) => {
 
         {/* Product Name */}
         <Link href={`/products/${item.id}`}>
-          <h3 className="font-poppins font-semibold text-white mb-3 hover:text-luxury-gold transition-colors duration-300 line-clamp-2 leading-tight">
+          <h3 className="font-poppins font-semibold text-white mb-3 hover:text-premium-gold transition-colors duration-300 line-clamp-2 leading-tight">
             {item.name}
           </h3>
         </Link>
 
         {/* Price */}
         <div className="flex items-center gap-2 mb-4">
-          <span className="text-luxury-gold font-bold text-lg">
+          <span className="text-premium-gold font-bold text-lg">
             ${item.price.toLocaleString()}
           </span>
           {item.originalPrice && (
@@ -257,7 +257,7 @@ const Wishlist = ({ isOpen, onClose }: WishlistProps) => {
             disabled={!item.inStock}
             className={`flex-1 px-4 py-2 text-sm font-medium transition-all duration-300 flex items-center justify-center gap-2 ${
               item.inStock
-                ? 'luxury-button'
+                ? 'premium-button'
                 : 'bg-gray-600 text-gray-400 cursor-not-allowed'
             }`}
           >
@@ -284,7 +284,7 @@ const Wishlist = ({ isOpen, onClose }: WishlistProps) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-luxury-black/80 backdrop-blur-sm z-50"
+            className="fixed inset-0 bg-premium-black/80 backdrop-blur-sm z-50"
           />
 
           {/* Wishlist Panel */}
@@ -293,18 +293,18 @@ const Wishlist = ({ isOpen, onClose }: WishlistProps) => {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'tween', duration: 0.3 }}
-            className="fixed right-0 top-0 h-full w-full max-w-4xl bg-luxury-black border-l border-luxury-gold/20 z-50 flex flex-col"
+            className="fixed right-0 top-0 h-full w-full max-w-4xl bg-premium-black border-l border-premium-gold/20 z-50 flex flex-col"
           >
             {/* Header */}
             <div className="flex items-center justify-between p-6 border-b border-dark-gray">
               <div className="flex items-center gap-3">
-                <Heart className="text-luxury-gold fill-current" size={24} />
+                <Heart className="text-premium-gold fill-current" size={24} />
                 <div>
                   <h2 className="text-xl font-montserrat font-bold text-white">
                     My Wishlist
                   </h2>
                   <p className="text-sm text-gray-400">
-                    {wishlistItems.length} luxury items saved
+                    {wishlistItems.length} premium items saved
                   </p>
                 </div>
               </div>
@@ -312,7 +312,7 @@ const Wishlist = ({ isOpen, onClose }: WishlistProps) => {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={onClose}
-                className="p-2 text-gray-400 hover:text-luxury-gold transition-colors duration-300"
+                className="p-2 text-gray-400 hover:text-premium-gold transition-colors duration-300"
               >
                 <X size={20} />
               </motion.button>
@@ -327,13 +327,13 @@ const Wishlist = ({ isOpen, onClose }: WishlistProps) => {
                     Your wishlist is empty
                   </h3>
                   <p className="text-gray-500 mb-6">
-                    Save your favorite luxury items to your wishlist
+                    Save your favorite premium items to your wishlist
                   </p>
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={onClose}
-                    className="luxury-button px-6 py-3"
+                    className="premium-button px-6 py-3"
                   >
                     Explore Collection
                   </motion.button>
@@ -350,7 +350,7 @@ const Wishlist = ({ isOpen, onClose }: WishlistProps) => {
                     <select
                       value={sortBy}
                       onChange={(e) => setSortBy(e.target.value as any)}
-                      className="bg-charcoal border border-dark-gray text-white px-3 py-2 rounded-none focus:border-luxury-gold focus:outline-none"
+                      className="bg-charcoal border border-dark-gray text-white px-3 py-2 rounded-none focus:border-premium-gold focus:outline-none"
                     >
                       <option value="newest">Newest First</option>
                       <option value="oldest">Oldest First</option>
@@ -381,7 +381,7 @@ const Wishlist = ({ isOpen, onClose }: WishlistProps) => {
                         // Add all in-stock items to cart
                         wishlistItems.filter(item => item.inStock).forEach(addToCart)
                       }}
-                      className="flex-1 luxury-button px-6 py-3 flex items-center justify-center gap-2"
+                      className="flex-1 premium-button px-6 py-3 flex items-center justify-center gap-2"
                     >
                       <ShoppingBag size={18} />
                       Add All to Cart

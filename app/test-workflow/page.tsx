@@ -8,7 +8,7 @@ import { ShoppingBag, Heart, User, Search, Eye, ArrowRight } from 'lucide-react'
 
 export default function TestWorkflowPage() {
   return (
-    <div className="min-h-screen bg-luxury-black">
+    <div className="min-h-screen bg-premium-black">
       <Header />
       
       <main className="pt-20">
@@ -21,11 +21,11 @@ export default function TestWorkflowPage() {
         >
           <div className="container mx-auto px-4">
             <div className="text-center">
-              <h1 className="text-4xl md:text-5xl font-montserrat font-bold text-luxury-gold mb-4">
+              <h1 className="text-4xl md:text-5xl font-montserrat font-bold text-premium-gold mb-4">
                 Workflow Test Page
               </h1>
               <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-                Test all navigation flows and component connections in the Flyfe luxury e-commerce platform
+                Test all navigation flows and component connections in the Flyfe premium e-commerce platform
               </p>
             </div>
           </div>
@@ -41,22 +41,22 @@ export default function TestWorkflowPage() {
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="bg-charcoal border border-dark-gray p-6 hover:border-luxury-gold transition-all duration-300"
+                className="bg-charcoal border border-dark-gray p-6 hover:border-premium-gold transition-all duration-300"
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-luxury-gold/20 rounded-full flex items-center justify-center">
-                    <ShoppingBag className="text-luxury-gold" size={24} />
+                  <div className="w-12 h-12 bg-premium-gold/20 rounded-full flex items-center justify-center">
+                    <ShoppingBag className="text-premium-gold" size={24} />
                   </div>
                   <h3 className="text-xl font-montserrat font-bold text-white">Home Page</h3>
                 </div>
                 <p className="text-gray-400 mb-4">
-                  Complete luxury shopping experience with hero section, product carousels, and categories
+                  Complete premium shopping experience with hero section, product carousels, and categories
                 </p>
                 <Link href="/">
                   <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="luxury-button w-full flex items-center justify-center gap-2"
+                    className="premium-button w-full flex items-center justify-center gap-2"
                   >
                     Visit Home <ArrowRight size={16} />
                   </motion.button>
@@ -68,11 +68,11 @@ export default function TestWorkflowPage() {
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="bg-charcoal border border-dark-gray p-6 hover:border-luxury-gold transition-all duration-300"
+                className="bg-charcoal border border-dark-gray p-6 hover:border-premium-gold transition-all duration-300"
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-luxury-gold/20 rounded-full flex items-center justify-center">
-                    <Eye className="text-luxury-gold" size={24} />
+                  <div className="w-12 h-12 bg-premium-gold/20 rounded-full flex items-center justify-center">
+                    <Eye className="text-premium-gold" size={24} />
                   </div>
                   <h3 className="text-xl font-montserrat font-bold text-white">Product Detail</h3>
                 </div>
@@ -83,7 +83,7 @@ export default function TestWorkflowPage() {
                   <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="luxury-button w-full flex items-center justify-center gap-2"
+                    className="premium-button w-full flex items-center justify-center gap-2"
                   >
                     View Product <ArrowRight size={16} />
                   </motion.button>
@@ -95,11 +95,11 @@ export default function TestWorkflowPage() {
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="bg-charcoal border border-dark-gray p-6 hover:border-luxury-gold transition-all duration-300"
+                className="bg-charcoal border border-dark-gray p-6 hover:border-premium-gold transition-all duration-300"
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-luxury-gold/20 rounded-full flex items-center justify-center">
-                    <Search className="text-luxury-gold" size={24} />
+                  <div className="w-12 h-12 bg-premium-gold/20 rounded-full flex items-center justify-center">
+                    <Search className="text-premium-gold" size={24} />
                   </div>
                   <h3 className="text-xl font-montserrat font-bold text-white">Product Catalog</h3>
                 </div>
@@ -110,7 +110,7 @@ export default function TestWorkflowPage() {
                   <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="luxury-button w-full flex items-center justify-center gap-2"
+                    className="premium-button w-full flex items-center justify-center gap-2"
                   >
                     Browse Catalog <ArrowRight size={16} />
                   </motion.button>
@@ -122,11 +122,11 @@ export default function TestWorkflowPage() {
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="bg-charcoal border border-dark-gray p-6 hover:border-luxury-gold transition-all duration-300"
+                className="bg-charcoal border border-dark-gray p-6 hover:border-premium-gold transition-all duration-300"
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-luxury-gold/20 rounded-full flex items-center justify-center">
-                    <ShoppingBag className="text-luxury-gold" size={24} />
+                  <div className="w-12 h-12 bg-premium-gold/20 rounded-full flex items-center justify-center">
+                    <ShoppingBag className="text-premium-gold" size={24} />
                   </div>
                   <h3 className="text-xl font-montserrat font-bold text-white">Shopping Cart</h3>
                 </div>
@@ -137,7 +137,7 @@ export default function TestWorkflowPage() {
                   <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="luxury-button w-full flex items-center justify-center gap-2"
+                    className="premium-button w-full flex items-center justify-center gap-2"
                   >
                     View Cart <ArrowRight size={16} />
                   </motion.button>
@@ -149,11 +149,11 @@ export default function TestWorkflowPage() {
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
-                className="bg-charcoal border border-dark-gray p-6 hover:border-luxury-gold transition-all duration-300"
+                className="bg-charcoal border border-dark-gray p-6 hover:border-premium-gold transition-all duration-300"
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-luxury-gold/20 rounded-full flex items-center justify-center">
-                    <ShoppingBag className="text-luxury-gold" size={24} />
+                  <div className="w-12 h-12 bg-premium-gold/20 rounded-full flex items-center justify-center">
+                    <ShoppingBag className="text-premium-gold" size={24} />
                   </div>
                   <h3 className="text-xl font-montserrat font-bold text-white">Checkout</h3>
                 </div>
@@ -164,7 +164,7 @@ export default function TestWorkflowPage() {
                   <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="luxury-button w-full flex items-center justify-center gap-2"
+                    className="premium-button w-full flex items-center justify-center gap-2"
                   >
                     Test Checkout <ArrowRight size={16} />
                   </motion.button>
@@ -176,11 +176,11 @@ export default function TestWorkflowPage() {
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
-                className="bg-charcoal border border-dark-gray p-6 hover:border-luxury-gold transition-all duration-300"
+                className="bg-charcoal border border-dark-gray p-6 hover:border-premium-gold transition-all duration-300"
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-luxury-gold/20 rounded-full flex items-center justify-center">
-                    <Heart className="text-luxury-gold" size={24} />
+                  <div className="w-12 h-12 bg-premium-gold/20 rounded-full flex items-center justify-center">
+                    <Heart className="text-premium-gold" size={24} />
                   </div>
                   <h3 className="text-xl font-montserrat font-bold text-white">Wishlist</h3>
                 </div>
@@ -191,7 +191,7 @@ export default function TestWorkflowPage() {
                   <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="luxury-button w-full flex items-center justify-center gap-2"
+                    className="premium-button w-full flex items-center justify-center gap-2"
                   >
                     View Wishlist <ArrowRight size={16} />
                   </motion.button>
@@ -203,11 +203,11 @@ export default function TestWorkflowPage() {
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
-                className="bg-charcoal border border-dark-gray p-6 hover:border-luxury-gold transition-all duration-300"
+                className="bg-charcoal border border-dark-gray p-6 hover:border-premium-gold transition-all duration-300"
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-luxury-gold/20 rounded-full flex items-center justify-center">
-                    <Heart className="text-luxury-gold" size={24} />
+                  <div className="w-12 h-12 bg-premium-gold/20 rounded-full flex items-center justify-center">
+                    <Heart className="text-premium-gold" size={24} />
                   </div>
                   <h3 className="text-xl font-montserrat font-bold text-white">Wishlist & Cart</h3>
                 </div>
@@ -224,11 +224,11 @@ export default function TestWorkflowPage() {
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
-                className="bg-charcoal border border-dark-gray p-6 hover:border-luxury-gold transition-all duration-300"
+                className="bg-charcoal border border-dark-gray p-6 hover:border-premium-gold transition-all duration-300"
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-luxury-gold/20 rounded-full flex items-center justify-center">
-                    <User className="text-luxury-gold" size={24} />
+                  <div className="w-12 h-12 bg-premium-gold/20 rounded-full flex items-center justify-center">
+                    <User className="text-premium-gold" size={24} />
                   </div>
                   <h3 className="text-xl font-montserrat font-bold text-white">User Auth</h3>
                 </div>
@@ -253,12 +253,12 @@ export default function TestWorkflowPage() {
               transition={{ duration: 0.6, delay: 0.7 }}
               className="max-w-4xl mx-auto"
             >
-              <h2 className="text-3xl font-montserrat font-bold text-luxury-gold mb-8 text-center">
+              <h2 className="text-3xl font-montserrat font-bold text-premium-gold mb-8 text-center">
                 Complete Workflow Test
               </h2>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="bg-luxury-black border border-dark-gray p-6">
+                <div className="bg-premium-black border border-dark-gray p-6">
                   <h3 className="text-xl font-poppins font-semibold text-white mb-4">
                     🛍️ Shopping Flow
                   </h3>
@@ -272,7 +272,7 @@ export default function TestWorkflowPage() {
                   </ol>
                 </div>
                 
-                <div className="bg-luxury-black border border-dark-gray p-6">
+                <div className="bg-premium-black border border-dark-gray p-6">
                   <h3 className="text-xl font-poppins font-semibold text-white mb-4">
                     👤 User Flow
                   </h3>
@@ -288,7 +288,7 @@ export default function TestWorkflowPage() {
               </div>
               
               <li className="flex items-center gap-3">
-                <Heart className="text-luxury-gold" size={20} />
+                <Heart className="text-premium-gold" size={20} />
                 <span>Click the heart icon in header → Navigate to wishlist page</span>
               </li>
               <div className="text-center mt-8">
@@ -299,7 +299,7 @@ export default function TestWorkflowPage() {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.98 }}
-                    className="luxury-button px-8 py-3 text-lg"
+                    className="premium-button px-8 py-3 text-lg"
                   >
                     Start Shopping Experience
                   </motion.button>

@@ -25,7 +25,7 @@ const CinematicLoader = () => {
       className="cinematic-loader"
     >
       {/* Animated Background */}
-      <div className="absolute inset-0 bg-luxury-black">
+      <div className="absolute inset-0 bg-premium-black">
         <div className="gold-particles">
           {particles.map((particle) => (
             <motion.div
@@ -63,7 +63,7 @@ const CinematicLoader = () => {
           className="mb-8"
         >
           <motion.h1
-            className="text-6xl md:text-8xl font-montserrat font-black text-luxury-gold tracking-wider"
+            className="text-6xl md:text-8xl font-montserrat font-black text-premium-gold tracking-wider"
             initial={{ letterSpacing: '0.5em', opacity: 0 }}
             animate={{ letterSpacing: '0.1em', opacity: 1 }}
             transition={{ duration: 1.5, ease: 'easeOut', delay: 0.8 }}
@@ -79,7 +79,7 @@ const CinematicLoader = () => {
           transition={{ duration: 0.8, delay: 1.5 }}
           className="text-white text-lg md:text-xl font-poppins font-light tracking-widest uppercase"
         >
-          Luxury Redefined
+          Premium Redefined
         </motion.p>
 
         {/* Loading Bar */}
@@ -87,7 +87,7 @@ const CinematicLoader = () => {
           initial={{ width: 0 }}
           animate={{ width: '200px' }}
           transition={{ duration: 2, ease: 'easeInOut', delay: 1.8 }}
-          className="mt-12 h-0.5 bg-luxury-gold relative overflow-hidden"
+          className="mt-12 h-0.5 bg-premium-gold relative overflow-hidden"
         >
           <motion.div
             className="absolute top-0 left-0 h-full w-full bg-gradient-to-r from-transparent via-gold-light to-transparent"
@@ -99,7 +99,7 @@ const CinematicLoader = () => {
 
       {/* Cinematic Overlay Effect */}
       <motion.div
-        className="absolute inset-0 bg-gradient-to-b from-transparent via-luxury-black/20 to-luxury-black/40"
+        className="absolute inset-0 bg-gradient-to-b from-transparent via-premium-black/20 to-premium-black/40"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 2, delay: 1 }}

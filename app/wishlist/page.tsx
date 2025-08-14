@@ -54,7 +54,7 @@ export default function WishlistPage() {
     if (navigator.share) {
       navigator.share({
         title: item.name,
-        text: `Check out this luxury item from Flyfe: ${item.name}`,
+        text: `Check out this premium item from Flyfe: ${item.name}`,
         url: `/products/${item.id}`
       })
     } else {
@@ -97,7 +97,7 @@ export default function WishlistPage() {
 
   if (wishlistState.items.length === 0) {
     return (
-      <div className="min-h-screen bg-luxury-black">
+      <div className="min-h-screen bg-premium-black">
         <Header />
         
         <main className="pt-20">
@@ -114,7 +114,7 @@ export default function WishlistPage() {
                   Your Wishlist is Empty
                 </h1>
                 <p className="text-gray-400 text-lg mb-8">
-                  Save your favorite luxury items to your wishlist and never lose track of what you love
+                  Save your favorite premium items to your wishlist and never lose track of what you love
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -122,7 +122,7 @@ export default function WishlistPage() {
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.98 }}
-                      className="luxury-button px-8 py-3 flex items-center justify-center gap-2"
+                      className="premium-button px-8 py-3 flex items-center justify-center gap-2"
                     >
                       <ArrowLeft size={18} />
                       Explore Collection
@@ -133,7 +133,7 @@ export default function WishlistPage() {
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.98 }}
-                      className="px-8 py-3 border border-luxury-gold text-luxury-gold hover:bg-luxury-gold hover:text-luxury-black transition-all duration-300 flex items-center justify-center gap-2"
+                      className="px-8 py-3 border border-premium-gold text-premium-gold hover:bg-premium-gold hover:text-premium-black transition-all duration-300 flex items-center justify-center gap-2"
                     >
                       Browse Catalog
                       <ArrowRight size={18} />
@@ -151,7 +151,7 @@ export default function WishlistPage() {
   }
 
   return (
-    <div className="min-h-screen bg-luxury-black">
+    <div className="min-h-screen bg-premium-black">
       <Header />
       
       <main className="pt-20">
@@ -165,11 +165,11 @@ export default function WishlistPage() {
           <div className="container mx-auto px-4">
             <div className="flex items-center justify-between">
               <div>
-                <h1 className="text-3xl md:text-4xl font-montserrat font-bold text-luxury-gold mb-2">
+                <h1 className="text-3xl md:text-4xl font-montserrat font-bold text-premium-gold mb-2">
                   My Wishlist
                 </h1>
                 <p className="text-gray-300">
-                  {wishlistState.totalItems} luxury {wishlistState.totalItems === 1 ? 'item' : 'items'} saved
+                  {wishlistState.totalItems} premium {wishlistState.totalItems === 1 ? 'item' : 'items'} saved
                 </p>
               </div>
               
@@ -177,7 +177,7 @@ export default function WishlistPage() {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.98 }}
-                  className="flex items-center gap-2 text-luxury-gold hover:text-white transition-colors duration-300"
+                  className="flex items-center gap-2 text-premium-gold hover:text-white transition-colors duration-300"
                 >
                   <ArrowLeft size={18} />
                   Continue Shopping
@@ -200,7 +200,7 @@ export default function WishlistPage() {
                   <select
                     value={filterBy}
                     onChange={(e) => setFilterBy(e.target.value as any)}
-                    className="bg-luxury-black border border-dark-gray text-white px-3 py-2 rounded-none focus:border-luxury-gold focus:outline-none"
+                    className="bg-premium-black border border-dark-gray text-white px-3 py-2 rounded-none focus:border-premium-gold focus:outline-none"
                   >
                     <option value="all">All Items</option>
                     <option value="in-stock">In Stock</option>
@@ -214,7 +214,7 @@ export default function WishlistPage() {
                   <select
                     value={sortBy}
                     onChange={(e) => setSortBy(e.target.value as any)}
-                    className="bg-luxury-black border border-dark-gray text-white px-3 py-2 rounded-none focus:border-luxury-gold focus:outline-none"
+                    className="bg-premium-black border border-dark-gray text-white px-3 py-2 rounded-none focus:border-premium-gold focus:outline-none"
                   >
                     <option value="newest">Newest First</option>
                     <option value="oldest">Oldest First</option>
@@ -233,7 +233,7 @@ export default function WishlistPage() {
                     onClick={() => setViewMode('grid')}
                     className={`p-2 transition-colors duration-300 ${
                       viewMode === 'grid' 
-                        ? 'bg-luxury-gold text-luxury-black' 
+                        ? 'bg-premium-gold text-premium-black' 
                         : 'text-gray-400 hover:text-white'
                     }`}
                   >
@@ -243,7 +243,7 @@ export default function WishlistPage() {
                     onClick={() => setViewMode('list')}
                     className={`p-2 transition-colors duration-300 ${
                       viewMode === 'list' 
-                        ? 'bg-luxury-gold text-luxury-black' 
+                        ? 'bg-premium-gold text-premium-black' 
                         : 'text-gray-400 hover:text-white'
                     }`}
                   >
@@ -283,8 +283,8 @@ export default function WishlistPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: index * 0.1 }}
                   className={viewMode === 'grid' 
-                    ? "bg-charcoal border border-dark-gray overflow-hidden group hover:border-luxury-gold/30 transition-all duration-300"
-                    : "bg-charcoal border border-dark-gray p-6 hover:border-luxury-gold/30 transition-all duration-300"
+                    ? "bg-charcoal border border-dark-gray overflow-hidden group hover:border-premium-gold/30 transition-all duration-300"
+                    : "bg-charcoal border border-dark-gray p-6 hover:border-premium-gold/30 transition-all duration-300"
                   }
                 >
                   {viewMode === 'grid' ? (
@@ -302,7 +302,7 @@ export default function WishlistPage() {
                             />
                             
                             {/* Overlay */}
-                            <div className="absolute inset-0 bg-luxury-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <div className="absolute inset-0 bg-premium-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                               <motion.div
                                 initial={{ scale: 0 }}
                                 whileHover={{ scale: 1 }}
@@ -313,7 +313,7 @@ export default function WishlistPage() {
                                     e.preventDefault()
                                     // Quick view logic
                                   }}
-                                  className="p-2 bg-luxury-black/70 hover:bg-luxury-gold hover:text-luxury-black text-white rounded-full transition-all duration-300"
+                                  className="p-2 bg-premium-black/70 hover:bg-premium-gold hover:text-premium-black text-white rounded-full transition-all duration-300"
                                   title="Quick view"
                                 >
                                   <Eye size={16} />
@@ -323,7 +323,7 @@ export default function WishlistPage() {
                                     e.preventDefault()
                                     handleShare(item)
                                   }}
-                                  className="p-2 bg-luxury-black/70 hover:bg-luxury-gold hover:text-luxury-black text-white rounded-full transition-all duration-300"
+                                  className="p-2 bg-premium-black/70 hover:bg-premium-gold hover:text-premium-black text-white rounded-full transition-all duration-300"
                                   title="Share"
                                 >
                                   <Share2 size={16} />
@@ -336,7 +336,7 @@ export default function WishlistPage() {
                         {/* Product Badges */}
                         <div className="absolute top-3 left-3 flex flex-col gap-2">
                           {item.isNew && (
-                            <span className="bg-luxury-gold text-luxury-black px-2 py-1 text-xs font-bold uppercase tracking-wide">
+                            <span className="bg-premium-gold text-premium-black px-2 py-1 text-xs font-bold uppercase tracking-wide">
                               New
                             </span>
                           )}
@@ -357,7 +357,7 @@ export default function WishlistPage() {
                           whileHover={{ scale: 1.1 }}
                           whileTap={{ scale: 0.95 }}
                           onClick={() => removeItem(item.id)}
-                          className="absolute top-3 right-3 p-2 bg-luxury-black/70 hover:bg-red-600 text-white rounded-full transition-all duration-300 opacity-0 group-hover:opacity-100"
+                          className="absolute top-3 right-3 p-2 bg-premium-black/70 hover:bg-red-600 text-white rounded-full transition-all duration-300 opacity-0 group-hover:opacity-100"
                           title="Remove from wishlist"
                         >
                           <Trash2 size={16} />
@@ -368,7 +368,7 @@ export default function WishlistPage() {
                       <div className="p-4">
                         {/* Brand & Category */}
                         <div className="flex items-center justify-between mb-2">
-                          <span className="text-luxury-gold text-xs font-poppins font-medium tracking-wider uppercase">
+                          <span className="text-premium-gold text-xs font-poppins font-medium tracking-wider uppercase">
                             {item.brand}
                           </span>
                           <span className="text-gray-500 text-xs uppercase">
@@ -384,7 +384,7 @@ export default function WishlistPage() {
                               size={12}
                               className={`${
                                 i < Math.floor(item.rating)
-                                  ? 'text-luxury-gold fill-current'
+                                  ? 'text-premium-gold fill-current'
                                   : 'text-gray-600'
                               }`}
                             />
@@ -396,14 +396,14 @@ export default function WishlistPage() {
 
                         {/* Product Name */}
                         <Link href={`/products/${item.id}`}>
-                          <h3 className="font-poppins font-semibold text-white mb-3 hover:text-luxury-gold transition-colors duration-300 line-clamp-2 leading-tight cursor-pointer">
+                          <h3 className="font-poppins font-semibold text-white mb-3 hover:text-premium-gold transition-colors duration-300 line-clamp-2 leading-tight cursor-pointer">
                             {item.name}
                           </h3>
                         </Link>
 
                         {/* Price */}
                         <div className="flex items-center gap-2 mb-4">
-                          <span className="text-luxury-gold font-bold text-lg">
+                          <span className="text-premium-gold font-bold text-lg">
                             ${item.price.toLocaleString()}
                           </span>
                           {item.originalPrice && (
@@ -422,7 +422,7 @@ export default function WishlistPage() {
                             disabled={!item.inStock}
                             className={`flex-1 px-4 py-2 text-sm font-medium transition-all duration-300 flex items-center justify-center gap-2 ${
                               item.inStock
-                                ? 'luxury-button'
+                                ? 'premium-button'
                                 : 'bg-gray-600 text-gray-400 cursor-not-allowed'
                             }`}
                           >
@@ -457,14 +457,14 @@ export default function WishlistPage() {
                         <div className="flex items-start justify-between mb-2">
                           <div className="flex-1">
                             <div className="flex items-center gap-4 mb-2">
-                              <span className="text-luxury-gold text-sm font-poppins font-medium tracking-wider uppercase">
+                              <span className="text-premium-gold text-sm font-poppins font-medium tracking-wider uppercase">
                                 {item.brand}
                               </span>
                               <span className="text-gray-500 text-sm uppercase">
                                 {item.category}
                               </span>
                               {item.isNew && (
-                                <span className="bg-luxury-gold text-luxury-black px-2 py-1 text-xs font-bold uppercase tracking-wide">
+                                <span className="bg-premium-gold text-premium-black px-2 py-1 text-xs font-bold uppercase tracking-wide">
                                   New
                                 </span>
                               )}
@@ -476,7 +476,7 @@ export default function WishlistPage() {
                             </div>
                             
                             <Link href={`/products/${item.id}`}>
-                              <h3 className="font-poppins font-semibold text-white text-lg mb-2 hover:text-luxury-gold transition-colors duration-300 cursor-pointer">
+                              <h3 className="font-poppins font-semibold text-white text-lg mb-2 hover:text-premium-gold transition-colors duration-300 cursor-pointer">
                                 {item.name}
                               </h3>
                             </Link>
@@ -488,7 +488,7 @@ export default function WishlistPage() {
                                   size={14}
                                   className={`${
                                     i < Math.floor(item.rating)
-                                      ? 'text-luxury-gold fill-current'
+                                      ? 'text-premium-gold fill-current'
                                       : 'text-gray-600'
                                   }`}
                                 />
@@ -499,7 +499,7 @@ export default function WishlistPage() {
                             </div>
 
                             <div className="flex items-center gap-3 mb-4">
-                              <span className="text-luxury-gold font-bold text-xl">
+                              <span className="text-premium-gold font-bold text-xl">
                                 ${item.price.toLocaleString()}
                               </span>
                               {item.originalPrice && (
@@ -525,7 +525,7 @@ export default function WishlistPage() {
                               whileHover={{ scale: 1.1 }}
                               whileTap={{ scale: 0.95 }}
                               onClick={() => handleShare(item)}
-                              className="p-2 text-gray-400 hover:text-luxury-gold transition-colors duration-300"
+                              className="p-2 text-gray-400 hover:text-premium-gold transition-colors duration-300"
                               title="Share"
                             >
                               <Share2 size={18} />
@@ -538,7 +538,7 @@ export default function WishlistPage() {
                               disabled={!item.inStock}
                               className={`px-6 py-2 font-medium transition-all duration-300 flex items-center gap-2 ${
                                 item.inStock
-                                  ? 'luxury-button'
+                                  ? 'premium-button'
                                   : 'bg-gray-600 text-gray-400 cursor-not-allowed'
                               }`}
                             >
@@ -578,7 +578,7 @@ export default function WishlistPage() {
                   onClick={() => {
                     sortedItems.filter(item => item.inStock).forEach(item => handleAddToCart(item))
                   }}
-                  className="luxury-button px-8 py-3 flex items-center justify-center gap-2"
+                  className="premium-button px-8 py-3 flex items-center justify-center gap-2"
                 >
                   <ShoppingBag size={18} />
                   Add All Available to Cart

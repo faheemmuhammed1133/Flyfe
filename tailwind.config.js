@@ -8,9 +8,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Luxury Black & Gold Theme
-        'luxury-black': '#000000',
-        'luxury-gold': '#FFD700',
+        // Premium Black & Gold Theme
+        'premium-black': '#000000',
+        'premium-gold': '#FFD700',
         'gold-light': '#FFF8DC',
         'gold-dark': '#DAA520',
         'charcoal': '#1C1C1C',
@@ -52,12 +52,12 @@ module.exports = {
       backgroundImage: {
         'gold-gradient': 'linear-gradient(135deg, #FFD700 0%, #DAA520 100%)',
         'black-gradient': 'linear-gradient(135deg, #000000 0%, #1C1C1C 100%)',
-        'luxury-gradient': 'linear-gradient(135deg, #000000 0%, #1C1C1C 50%, #000000 100%)',
+        'premium-gradient': 'linear-gradient(135deg, #000000 0%, #1C1C1C 50%, #000000 100%)',
       },
       boxShadow: {
         'gold': '0 4px 14px 0 rgba(255, 215, 0, 0.39)',
         'gold-lg': '0 10px 25px -3px rgba(255, 215, 0, 0.5)',
-        'luxury': '0 25px 50px -12px rgba(0, 0, 0, 0.8)',
+        'premium': '0 25px 50px -12px rgba(0, 0, 0, 0.8)',
       },
     },
   },

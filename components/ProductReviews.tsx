@@ -80,7 +80,7 @@ const ProductReviews = ({ productId, averageRating, totalReviews }: ProductRevie
       userName: 'David Kim',
       userAvatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face',
       rating: 4,
-      title: 'Luxury at its finest',
+      title: 'Premium at its finest',
       content: 'The attention to detail is remarkable. You can tell this is a premium product from the moment you open the box. The weight and feel of the piece speaks to its quality.',
       date: '2024-01-08',
       verified: true,
@@ -126,7 +126,7 @@ const ProductReviews = ({ productId, averageRating, totalReviews }: ProductRevie
               {review.userName}
             </h4>
             {review.verified && (
-              <span className="bg-luxury-gold/20 text-luxury-gold px-2 py-0.5 text-xs font-medium rounded-full">
+              <span className="bg-premium-gold/20 text-premium-gold px-2 py-0.5 text-xs font-medium rounded-full">
                 Verified Purchase
               </span>
             )}
@@ -140,7 +140,7 @@ const ProductReviews = ({ productId, averageRating, totalReviews }: ProductRevie
                   size={14}
                   className={`${
                     i < review.rating
-                      ? 'text-luxury-gold fill-current'
+                      ? 'text-premium-gold fill-current'
                       : 'text-gray-600'
                   }`}
                 />
@@ -193,11 +193,11 @@ const ProductReviews = ({ productId, averageRating, totalReviews }: ProductRevie
       {/* Review Actions */}
       <div className="flex items-center justify-between pt-4 border-t border-dark-gray">
         <div className="flex items-center gap-4">
-          <button className="flex items-center gap-2 text-gray-400 hover:text-luxury-gold transition-colors duration-300">
+          <button className="flex items-center gap-2 text-gray-400 hover:text-premium-gold transition-colors duration-300">
             <ThumbsUp size={16} />
             <span className="text-sm">Helpful ({review.helpful})</span>
           </button>
-          <button className="flex items-center gap-2 text-gray-400 hover:text-luxury-gold transition-colors duration-300">
+          <button className="flex items-center gap-2 text-gray-400 hover:text-premium-gold transition-colors duration-300">
             <MessageCircle size={16} />
             <span className="text-sm">Reply</span>
           </button>
@@ -207,7 +207,7 @@ const ProductReviews = ({ productId, averageRating, totalReviews }: ProductRevie
   )
 
   return (
-    <section className="py-16 bg-luxury-black">
+    <section className="py-16 bg-premium-black">
       <div className="container mx-auto px-4">
         {/* Reviews Summary */}
         <motion.div
@@ -225,7 +225,7 @@ const ProductReviews = ({ productId, averageRating, totalReviews }: ProductRevie
               </h2>
               
               <div className="flex items-center justify-center lg:justify-start gap-4 mb-6">
-                <div className="text-5xl font-bold text-luxury-gold">
+                <div className="text-5xl font-bold text-premium-gold">
                   {averageRating.toFixed(1)}
                 </div>
                 <div>
@@ -236,7 +236,7 @@ const ProductReviews = ({ productId, averageRating, totalReviews }: ProductRevie
                         size={20}
                         className={`${
                           i < Math.floor(averageRating)
-                            ? 'text-luxury-gold fill-current'
+                            ? 'text-premium-gold fill-current'
                             : 'text-gray-600'
                         }`}
                       />
@@ -255,7 +255,7 @@ const ProductReviews = ({ productId, averageRating, totalReviews }: ProductRevie
                 <div key={item.stars} className="flex items-center gap-3">
                   <div className="flex items-center gap-1 w-16">
                     <span className="text-sm text-gray-300">{item.stars}</span>
-                    <Star size={12} className="text-luxury-gold fill-current" />
+                    <Star size={12} className="text-premium-gold fill-current" />
                   </div>
                   <div className="flex-1 bg-dark-gray rounded-full h-2">
                     <motion.div
@@ -263,7 +263,7 @@ const ProductReviews = ({ productId, averageRating, totalReviews }: ProductRevie
                       whileInView={{ width: `${item.percentage}%` }}
                       transition={{ duration: 1, delay: 0.2 }}
                       viewport={{ once: true }}
-                      className="bg-luxury-gold h-full rounded-full"
+                      className="bg-premium-gold h-full rounded-full"
                     />
                   </div>
                   <span className="text-sm text-gray-400 w-12 text-right">
@@ -285,7 +285,7 @@ const ProductReviews = ({ productId, averageRating, totalReviews }: ProductRevie
         >
           <button
             onClick={() => setShowFilters(!showFilters)}
-            className="flex items-center gap-2 text-gray-300 hover:text-luxury-gold transition-colors duration-300"
+            className="flex items-center gap-2 text-gray-300 hover:text-premium-gold transition-colors duration-300"
           >
             <Filter size={16} />
             Filters
@@ -300,7 +300,7 @@ const ProductReviews = ({ productId, averageRating, totalReviews }: ProductRevie
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value as any)}
-            className="bg-charcoal border border-dark-gray text-white px-4 py-2 rounded-none focus:border-luxury-gold focus:outline-none"
+            className="bg-charcoal border border-dark-gray text-white px-4 py-2 rounded-none focus:border-premium-gold focus:outline-none"
           >
             <option value="newest">Newest First</option>
             <option value="oldest">Oldest First</option>
@@ -331,8 +331,8 @@ const ProductReviews = ({ productId, averageRating, totalReviews }: ProductRevie
                         onClick={() => setFilterRating(filterRating === rating ? null : rating)}
                         className={`flex items-center gap-1 px-3 py-2 border transition-all duration-300 ${
                           filterRating === rating
-                            ? 'border-luxury-gold bg-luxury-gold text-luxury-black'
-                            : 'border-gray-600 text-gray-300 hover:border-luxury-gold'
+                            ? 'border-premium-gold bg-premium-gold text-premium-black'
+                            : 'border-gray-600 text-gray-300 hover:border-premium-gold'
                         }`}
                       >
                         <span>{rating}</span>
@@ -364,7 +364,7 @@ const ProductReviews = ({ productId, averageRating, totalReviews }: ProductRevie
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
-            className="luxury-button px-8 py-3"
+            className="premium-button px-8 py-3"
           >
             Load More Reviews
           </motion.button>

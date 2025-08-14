@@ -76,7 +76,7 @@ const demoWishlistItems: WishlistItem[] = [
   },
   {
     id: 4,
-    name: 'Luxury Gold Necklace',
+    name: 'Premium Gold Necklace',
     price: 2499,
     originalPrice: 2999,
     image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=300&h=300&fit=crop',

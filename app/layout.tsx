@@ -19,9 +19,9 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: 'Flyfe - Luxury E-Commerce Experience',
-  description: 'Discover premium products in our luxury black & gold e-commerce platform. Experience world-class shopping with cinematic design and flawless performance.',
-  keywords: 'luxury ecommerce, premium shopping, black gold design, high-end products',
+  title: 'Flyfe - Premium E-Commerce Experience',
+  description: 'Discover premium products in our premium black & gold e-commerce platform. Experience world-class shopping with cinematic design and flawless performance.',
+  keywords: 'premium ecommerce, premium shopping, black gold design, high-end products',
   authors: [{ name: 'Flyfe Team' }],
   creator: 'Flyfe',
   publisher: 'Flyfe',
@@ -35,8 +35,8 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'Flyfe - Luxury E-Commerce Experience',
-    description: 'Discover premium products in our luxury black & gold e-commerce platform.',
+    title: 'Flyfe - Premium E-Commerce Experience',
+    description: 'Discover premium products in our premium black & gold e-commerce platform.',
     url: 'http://localhost:3000',
     siteName: 'Flyfe',
     images: [
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Flyfe Luxury E-Commerce',
+        alt: 'Flyfe Premium E-Commerce',
       },
     ],
     locale: 'en_US',
@@ -52,8 +52,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Flyfe - Luxury E-Commerce Experience',
-    description: 'Discover premium products in our luxury black & gold e-commerce platform.',
+    title: 'Flyfe - Premium E-Commerce Experience',
+    description: 'Discover premium products in our premium black & gold e-commerce platform.',
     images: ['/twitter-image.jpg'],
     creator: '@flyfe',
   },
@@ -91,7 +91,7 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />
       </head>
-      <body className={`${poppins.className} bg-luxury-black text-white antialiased`}>
+      <body className={`${poppins.className} bg-premium-black text-white antialiased`}>
         <div id="portal-root" />
         <AuthProvider>
           <CartProvider>
