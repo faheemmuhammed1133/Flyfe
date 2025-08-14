@@ -56,7 +56,7 @@ const HeroSection = () => {
   return (
     <section 
       ref={heroRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden hero-gradient"
+      className="relative h-screen flex items-center justify-center overflow-hidden hero-gradient -mt-20 pt-20"
     >
       {/* Animated Background Particles */}
       <div className="absolute inset-0 overflow-hidden">
@@ -198,7 +198,7 @@ const HeroSection = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 3 }}
         onClick={scrollToContent}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-premium-gold hover:text-gold-light transition-colors duration-300"
+        className="absolute bottom-8 left-0 right-0 mx-auto w-fit text-premium-gold hover:text-gold-light transition-colors duration-300"
         aria-label="Scroll to content"
       >
         <motion.div

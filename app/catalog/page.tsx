@@ -20,9 +20,13 @@ export default function CatalogPage() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="bg-premium-gradient py-20"
+          className="relative bg-gradient-to-br from-gray-900 via-premium-black to-gray-900 py-20"
         >
-          <div className="container mx-auto px-4 text-center">
+          {/* Premium Background Pattern */}
+          <div className="absolute inset-0 bg-gradient-to-br from-premium-gold/5 via-transparent to-premium-gold/5 opacity-50" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,215,0,0.1),transparent_70%)]" />
+          
+          <div className="container mx-auto px-4 text-center relative z-10">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -46,24 +50,27 @@ export default function CatalogPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="max-w-md mx-auto relative"
+              className="max-w-lg mx-auto relative"
             >
-              <div className="relative">
-                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+              <div className="relative group">
+                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 group-focus-within:text-premium-gold transition-colors duration-300" size={20} />
                 <input
                   type="text"
                   placeholder="Search premium products..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-12 pr-4 py-4 bg-premium-black/50 backdrop-blur-sm border border-premium-gold/30 text-white placeholder-gray-400 focus:border-premium-gold focus:ring-1 focus:ring-premium-gold transition-all duration-300 outline-none rounded-none"
+                  className="w-full pl-12 pr-4 py-4 bg-gray-800/70 backdrop-blur-md border border-gray-700/50 text-white placeholder-gray-400 focus:border-premium-gold focus:bg-gray-800/90 focus:ring-1 focus:ring-premium-gold/30 transition-all duration-300 outline-none rounded-xl shadow-lg"
                 />
               </div>
             </motion.div>
           </div>
         </motion.section>
 
+        {/* Smooth Transition */}
+        <div className="h-px bg-gradient-to-r from-transparent via-premium-gold/20 to-transparent" />
+
         {/* Product Catalog */}
-        <section className="py-16">
+        <section className="bg-gradient-to-b from-gray-900/50 to-premium-black py-16">
           <ProductCatalog searchQuery={searchQuery} />
         </section>
       </main>
