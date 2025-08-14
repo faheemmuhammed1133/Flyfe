@@ -20,6 +20,7 @@ interface Product {
 
 const ProductCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [itemsPerView, setItemsPerView] = useState(1)
   const [products] = useState<Product[]>([
     {
       id: 1,
@@ -78,7 +79,6 @@ const ProductCarousel = () => {
     },
   ])
 
-  const itemsPerView = 4
   const maxIndex = Math.max(0, products.length - itemsPerView)
 
   const nextSlide = () => {
@@ -89,10 +89,30 @@ const ProductCarousel = () => {
     setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1))
   }
 
+  // Handle responsive breakpoints
+  useEffect(() => {
+    const updateItemsPerView = () => {
+      const width = window.innerWidth
+      if (width < 640) {
+        setItemsPerView(1) // Mobile: 1 item
+      } else if (width < 1024) {
+        setItemsPerView(2) // Tablet: 2 items
+      } else if (width < 1280) {
+        setItemsPerView(3) // Small desktop: 3 items
+      } else {
+        setItemsPerView(4) // Large desktop: 4 items
+      }
+    }
+
+    updateItemsPerView()
+    window.addEventListener('resize', updateItemsPerView)
+    return () => window.removeEventListener('resize', updateItemsPerView)
+  }, [])
+
   useEffect(() => {
     const interval = setInterval(nextSlide, 5000)
     return () => clearInterval(interval)
-  }, [])
+  }, [maxIndex])
 
   const ProductCard = ({ product, index }: { product: Product; index: number }) => (
     <Link href={`/products/${product.id}`}>
@@ -103,14 +123,14 @@ const ProductCarousel = () => {
         className="product-card group cursor-pointer relative"
       >
       {/* Product Badges */}
-      <div className="absolute top-4 left-4 z-10 flex flex-col gap-2">
+      <div className="absolute top-2 left-2 sm:top-4 sm:left-4 z-10 flex flex-col gap-1 sm:gap-2">
         {product.isNew && (
-          <span className="bg-premium-gold text-premium-black px-2 py-1 text-xs font-bold uppercase tracking-wide">
+          <span className="bg-premium-gold text-premium-black px-1.5 py-0.5 sm:px-2 sm:py-1 text-xs font-bold uppercase tracking-wide">
             New
           </span>
         )}
         {product.isSale && (
-          <span className="bg-red-600 text-white px-2 py-1 text-xs font-bold uppercase tracking-wide">
+          <span className="bg-red-600 text-white px-1.5 py-0.5 sm:px-2 sm:py-1 text-xs font-bold uppercase tracking-wide">
             Sale
           </span>
         )}
@@ -120,9 +140,9 @@ const ProductCarousel = () => {
       <motion.button
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
-        className="absolute top-4 right-4 z-10 p-2 bg-premium-black/50 backdrop-blur-sm rounded-full text-white hover:text-premium-gold transition-colors duration-300 opacity-0 group-hover:opacity-100"
+        className="absolute top-2 right-2 sm:top-4 sm:right-4 z-10 p-1.5 sm:p-2 bg-premium-black/50 backdrop-blur-sm rounded-full text-white hover:text-premium-gold transition-colors duration-300 opacity-0 group-hover:opacity-100"
       >
-        <Heart size={16} />
+        <Heart size={14} className="sm:w-4 sm:h-4" />
       </motion.button>
 
       {/* Product Image */}
@@ -140,22 +160,23 @@ const ProductCarousel = () => {
             initial={{ scale: 0 }}
             whileHover={{ scale: 1.1 }}
             animate={{ scale: 1 }}
-            className="premium-button px-6 py-2 text-sm flex items-center gap-2"
+            className="premium-button px-3 py-1.5 sm:px-6 sm:py-2 text-xs sm:text-sm flex items-center gap-1 sm:gap-2"
           >
-            <ShoppingBag size={16} />
-            Quick Add
+            <ShoppingBag size={14} className="sm:w-4 sm:h-4" />
+            <span className="hidden sm:inline">Quick Add</span>
+            <span className="sm:hidden">Add</span>
           </motion.button>
         </div>
       </div>
 
       {/* Product Info */}
-      <div className="p-6">
+      <div className="p-3 sm:p-6">
         <div className="flex items-center gap-1 mb-2">
           {Array.from({ length: 5 }).map((_, i) => (
             <Star
               key={i}
-              size={12}
-              className={`${
+              size={10}
+              className={`sm:w-3 sm:h-3 ${
                 i < Math.floor(product.rating)
                   ? 'text-premium-gold fill-current'
                   : 'text-gray-600'
@@ -165,16 +186,16 @@ const ProductCarousel = () => {
           <span className="text-xs text-gray-400 ml-1">({product.reviews})</span>
         </div>
 
-        <h3 className="font-poppins font-semibold text-white mb-3 group-hover:text-premium-gold transition-colors duration-300">
+        <h3 className="font-poppins font-semibold text-white mb-2 sm:mb-3 text-sm sm:text-base group-hover:text-premium-gold transition-colors duration-300 line-clamp-2">
           {product.name}
         </h3>
 
         <div className="flex items-center gap-2">
-          <span className="text-premium-gold font-bold text-lg">
+          <span className="text-premium-gold font-bold text-base sm:text-lg">
             ${product.price.toLocaleString()}
           </span>
           {product.originalPrice && (
-            <span className="text-gray-500 line-through text-sm">
+            <span className="text-gray-500 line-through text-xs sm:text-sm">
               ${product.originalPrice.toLocaleString()}
             </span>
           )}
@@ -188,36 +209,36 @@ const ProductCarousel = () => {
     <div className="relative">
       {/* Navigation Buttons */}
       <div className="flex justify-between items-center mb-8">
-        <div className="flex gap-4">
+        <div className="flex gap-2 sm:gap-4">
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             onClick={prevSlide}
-            className="p-3 bg-charcoal border border-premium-gold/30 text-premium-gold hover:bg-premium-gold hover:text-premium-black transition-all duration-300"
+            className="p-2 sm:p-3 bg-charcoal border border-premium-gold/30 text-premium-gold hover:bg-premium-gold hover:text-premium-black transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
             disabled={currentIndex === 0}
           >
-            <ChevronLeft size={20} />
+            <ChevronLeft size={16} className="sm:w-5 sm:h-5" />
           </motion.button>
           
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             onClick={nextSlide}
-            className="p-3 bg-charcoal border border-premium-gold/30 text-premium-gold hover:bg-premium-gold hover:text-premium-black transition-all duration-300"
+            className="p-2 sm:p-3 bg-charcoal border border-premium-gold/30 text-premium-gold hover:bg-premium-gold hover:text-premium-black transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
             disabled={currentIndex === maxIndex}
           >
-            <ChevronRight size={20} />
+            <ChevronRight size={16} className="sm:w-5 sm:h-5" />
           </motion.button>
         </div>
 
         {/* Pagination Dots */}
-        <div className="flex gap-2">
-          {Array.from({ length: maxIndex + 1 }).map((_, index) => (
+        <div className="flex gap-1 sm:gap-2">
+          {Array.from({ length: Math.max(1, maxIndex + 1) }).map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}
               className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                index === currentIndex ? 'bg-premium-gold w-8' : 'bg-gray-600'
+                index === currentIndex ? 'bg-premium-gold w-6 sm:w-8' : 'bg-gray-600'
               }`}
             />
           ))}
@@ -230,13 +251,13 @@ const ProductCarousel = () => {
           animate={{ x: `-${currentIndex * (100 / itemsPerView)}%` }}
           transition={{ duration: 0.5, ease: 'easeInOut' }}
           className="flex"
-          style={{ width: `${(products.length / itemsPerView) * 100}%` }}
+          style={{ width: `${Math.ceil(products.length / itemsPerView) * 100}%` }}
         >
           {products.map((product, index) => (
             <div
               key={product.id}
-              className="flex-shrink-0 px-3"
-              style={{ width: `${100 / products.length}%` }}
+              className="flex-shrink-0 px-2 sm:px-3"
+              style={{ width: `${100 / itemsPerView}%` }}
             >
               <ProductCard product={product} index={index} />
             </div>
@@ -250,13 +271,13 @@ const ProductCarousel = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="text-center mt-12"
+        className="text-center mt-8 sm:mt-12"
       >
         <Link href="/catalog">
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
-            className="premium-button px-8 py-3 text-lg"
+            className="premium-button px-6 py-2.5 sm:px-8 sm:py-3 text-base sm:text-lg"
           >
             View All Products
           </motion.button>
