@@ -20,12 +20,62 @@ export interface AuthResponse {
 
 export class AuthService {
   async login(credentials: LoginCredentials): Promise<AuthResponse> {
+    // Mock authentication for development
+    if (process.env.NODE_ENV === 'development') {
+      // Simulate API delay
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      // Mock successful login
+      if (credentials.email && credentials.password) {
+        const mockResponse: AuthResponse = {
+          user: {
+            id: '1',
+            email: credentials.email,
+            firstName: 'John',
+            lastName: 'Doe',
+            phone: '+1234567890',
+            role: 'CUSTOMER' as const,
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString()
+          },
+          token: 'mock-jwt-token-' + Date.now()
+        };
+        apiClient.setToken(mockResponse.token);
+        return mockResponse;
+      } else {
+        throw new Error('Invalid credentials');
+      }
+    }
+    
     const response = await apiClient.post<AuthResponse>('/auth/login', credentials);
     apiClient.setToken(response.token);
     return response;
   }
 
   async register(data: RegisterData): Promise<AuthResponse> {
+    // Mock authentication for development
+    if (process.env.NODE_ENV === 'development') {
+      // Simulate API delay
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      // Mock successful registration
+      const mockResponse: AuthResponse = {
+        user: {
+          id: '1',
+          email: data.email,
+          firstName: data.firstName,
+          lastName: data.lastName,
+          phone: data.phone || '',
+          role: 'CUSTOMER' as const,
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString()
+        },
+        token: 'mock-jwt-token-' + Date.now()
+      };
+      apiClient.setToken(mockResponse.token);
+      return mockResponse;
+    }
+    
     const response = await apiClient.post<AuthResponse>('/auth/register', data);
     apiClient.setToken(response.token);
     return response;

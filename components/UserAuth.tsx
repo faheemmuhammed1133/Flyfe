@@ -1,8 +1,9 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, Eye, EyeOff, User, Mail, Lock, Phone, CheckCircle } from 'lucide-react'
+import { X, Eye, EyeOff, User, Mail, Lock, Phone, CheckCircle, AlertCircle } from 'lucide-react'
+import { useAuth } from '@/contexts/AuthContext'
 
 interface UserAuthProps {
   isOpen: boolean
@@ -13,7 +14,7 @@ interface UserAuthProps {
 const UserAuth = ({ isOpen, onClose, initialMode = 'login' }: UserAuthProps) => {
   const [mode, setMode] = useState<'login' | 'register' | 'forgot'>(initialMode)
   const [showPassword, setShowPassword] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false)
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -25,22 +26,98 @@ const UserAuth = ({ isOpen, onClose, initialMode = 'login' }: UserAuthProps) => 
     newsletter: false
   })
 
+  const { state, login, register, forgotPassword, clearError } = useAuth()
+  const { isLoading, error } = state
+
+  // Clear form and error when modal opens/closes
+  useEffect(() => {
+    if (isOpen) {
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        password: '',
+        confirmPassword: '',
+        agreeToTerms: false,
+        newsletter: false
+      })
+      clearError()
+    }
+  }, [isOpen, clearError])
+
+  // Close modal on successful authentication
+  useEffect(() => {
+    if (state.isAuthenticated && isOpen) {
+      onClose()
+    }
+  }, [state.isAuthenticated, isOpen, onClose])
+
   const handleInputChange = (field: string, value: string | boolean) => {
     setFormData(prev => ({ ...prev, [field]: value }))
+    // Clear error when user starts typing
+    if (error) {
+      clearError()
+    }
+  }
+
+  const validateForm = () => {
+    if (mode === 'register') {
+      if (!formData.firstName.trim()) {
+        throw new Error('First name is required')
+      }
+      if (!formData.lastName.trim()) {
+        throw new Error('Last name is required')
+      }
+      if (formData.password !== formData.confirmPassword) {
+        throw new Error('Passwords do not match')
+      }
+      if (formData.password.length < 8) {
+        throw new Error('Password must be at least 8 characters')
+      }
+      if (!formData.agreeToTerms) {
+        throw new Error('You must agree to the terms and conditions')
+      }
+    }
+    
+    if (!formData.email.trim()) {
+      throw new Error('Email is required')
+    }
+    
+    if (mode !== 'forgot' && !formData.password.trim()) {
+      throw new Error('Password is required')
+    }
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setIsLoading(true)
     
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000))
-    
-    setIsLoading(false)
-    onClose()
-    
-    // Handle authentication logic here
-    console.log('Auth submission:', { mode, formData })
+    try {
+      validateForm()
+      
+      if (mode === 'login') {
+        await login({
+          email: formData.email,
+          password: formData.password
+        })
+      } else if (mode === 'register') {
+        await register({
+          email: formData.email,
+          password: formData.password,
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          phone: formData.phone
+        })
+      } else if (mode === 'forgot') {
+        await forgotPassword(formData.email)
+        // Show success message and switch to login
+        setMode('login')
+        setFormData(prev => ({ ...prev, password: '', confirmPassword: '' }))
+      }
+    } catch (error: any) {
+      console.error('Auth error:', error)
+      // Error is handled by the AuthContext
+    }
   }
 
   const LoginForm = () => (
@@ -51,6 +128,16 @@ const UserAuth = ({ isOpen, onClose, initialMode = 'login' }: UserAuthProps) => 
       onSubmit={handleSubmit}
       className="space-y-6"
     >
+      {error && (
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="bg-red-900/20 border border-red-500/30 rounded-lg p-3 flex items-center gap-2"
+        >
+          <AlertCircle className="text-red-400" size={16} />
+          <span className="text-red-400 text-sm">{error}</span>
+        </motion.div>
+      )}
       <div>
         <label className="block text-sm font-medium text-gray-300 mb-2">
           Email Address

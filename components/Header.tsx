@@ -6,11 +6,13 @@ import Link from 'next/link'
 import { ShoppingBag, Search, Menu, X, User, Heart } from 'lucide-react'
 import ShoppingCart from './ShoppingCart'
 import UserAuth from './UserAuth'
+import { useAuth } from '@/contexts/AuthContext'
 import { useCart } from '@/contexts/CartContext'
 import { useWishlist } from '@/contexts/WishlistContext'
 import { useRouter } from 'next/navigation'
 
 const Header = () => {
+  const { state: authState, logout } = useAuth()
   const { state } = useCart()
   const { state: wishlistState } = useWishlist()
   const router = useRouter()
@@ -18,6 +20,7 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isCartOpen, setIsCartOpen] = useState(false)
   const [isAuthOpen, setIsAuthOpen] = useState(false)
+  const [showUserMenu, setShowUserMenu] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,6 +30,18 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  // Close user menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (showUserMenu && !(event.target as Element).closest('.user-menu-container')) {
+        setShowUserMenu(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [showUserMenu])
 
   const navigationItems = [
     { name: 'Home', href: '/' },
@@ -123,15 +138,80 @@ const Header = () => {
             </motion.button>
 
             {/* User Account */}
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setIsAuthOpen(true)}
-              className="p-2 text-white hover:text-luxury-gold transition-colors duration-300"
-              aria-label="Account"
-            >
-              <User size={20} />
-            </motion.button>
+            {authState.isAuthenticated ? (
+              <div className="relative user-menu-container">
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => setShowUserMenu(!showUserMenu)}
+                  className="p-2 text-white hover:text-luxury-gold transition-colors duration-300 flex items-center gap-2"
+                  aria-label="User Menu"
+                >
+                  <div className="w-8 h-8 bg-luxury-gold rounded-full flex items-center justify-center">
+                    <span className="text-luxury-black font-semibold text-sm">
+                      {authState.user?.firstName?.charAt(0) || 'U'}
+                    </span>
+                  </div>
+                </motion.button>
+
+                <AnimatePresence>
+                  {showUserMenu && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      className="absolute right-0 top-full mt-2 w-48 bg-luxury-black border border-gray-800 rounded-lg shadow-xl z-50"
+                    >
+                      <div className="p-3 border-b border-gray-800">
+                        <p className="text-white font-medium">
+                          {authState.user?.firstName} {authState.user?.lastName}
+                        </p>
+                        <p className="text-gray-400 text-sm">{authState.user?.email}</p>
+                      </div>
+                      <div className="py-2">
+                        <button
+                          onClick={() => {
+                            setShowUserMenu(false)
+                            router.push('/profile')
+                          }}
+                          className="w-full px-4 py-2 text-left text-white hover:bg-gray-800 transition-colors"
+                        >
+                          My Profile
+                        </button>
+                        <button
+                          onClick={() => {
+                            setShowUserMenu(false)
+                            router.push('/orders')
+                          }}
+                          className="w-full px-4 py-2 text-left text-white hover:bg-gray-800 transition-colors"
+                        >
+                          My Orders
+                        </button>
+                        <button
+                          onClick={() => {
+                            setShowUserMenu(false)
+                            logout()
+                          }}
+                          className="w-full px-4 py-2 text-left text-red-400 hover:bg-gray-800 transition-colors"
+                        >
+                          Sign Out
+                        </button>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ) : (
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setIsAuthOpen(true)}
+                className="p-2 text-white hover:text-luxury-gold transition-colors duration-300"
+                aria-label="Sign In"
+              >
+                <User size={20} />
+              </motion.button>
+            )}
 
             {/* Shopping Cart */}
             <motion.button
