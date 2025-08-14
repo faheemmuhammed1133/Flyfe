@@ -74,13 +74,13 @@ export default function Home() {
                 viewport={{ once: true }}
                 className="py-20 bg-charcoal"
               >
-                <div className="container mx-auto px-4">
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                   <motion.h2
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
-                    className="text-4xl md:text-5xl font-montserrat font-bold text-center mb-16 text-white"
+                    className="text-3xl sm:text-4xl md:text-5xl font-montserrat font-bold text-center mb-8 sm:mb-16 text-white"
                   >
                     Trending Now
                   </motion.h2>

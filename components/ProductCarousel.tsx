@@ -120,7 +120,7 @@ const ProductCarousel = () => {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: index * 0.1 }}
-        className="product-card group cursor-pointer relative"
+        className="product-card group cursor-pointer relative w-full max-w-xs mx-auto sm:max-w-none"
       >
       {/* Product Badges */}
       <div className="absolute top-2 left-2 sm:top-4 sm:left-4 z-10 flex flex-col gap-1 sm:gap-2">
@@ -206,9 +206,9 @@ const ProductCarousel = () => {
   )
 
   return (
-    <div className="relative">
+    <div className="relative w-full">
       {/* Navigation Buttons */}
-      <div className="flex justify-between items-center mb-8">
+      <div className="flex justify-between items-center mb-6 sm:mb-8">
         <div className="flex gap-2 sm:gap-4">
           <motion.button
             whileHover={{ scale: 1.1 }}
@@ -246,20 +246,26 @@ const ProductCarousel = () => {
       </div>
 
       {/* Products Grid */}
-      <div className="overflow-hidden">
+      <div className="overflow-hidden w-full">
         <motion.div
           animate={{ x: `-${currentIndex * (100 / itemsPerView)}%` }}
           transition={{ duration: 0.5, ease: 'easeInOut' }}
-          className="flex"
+          className="flex w-full"
           style={{ width: `${Math.ceil(products.length / itemsPerView) * 100}%` }}
         >
           {products.map((product, index) => (
             <div
               key={product.id}
-              className="flex-shrink-0 px-2 sm:px-3"
-              style={{ width: `${100 / itemsPerView}%` }}
+              className="flex-shrink-0 w-full sm:px-3"
+              style={{ 
+                width: `${100 / itemsPerView}%`,
+                paddingLeft: itemsPerView === 1 ? '0' : undefined,
+                paddingRight: itemsPerView === 1 ? '0' : undefined
+              }}
             >
-              <ProductCard product={product} index={index} />
+              <div className={itemsPerView === 1 ? 'max-w-sm mx-auto' : ''}>
+                <ProductCard product={product} index={index} />
+              </div>
             </div>
           ))}
         </motion.div>
