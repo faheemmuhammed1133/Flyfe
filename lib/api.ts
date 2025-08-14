@@ -172,6 +172,7 @@ export interface Brand {
 }
 
 export interface CartItem {
+  variant?: Record<string, any>;
   id: string;
   productId: string;
   quantity: number;

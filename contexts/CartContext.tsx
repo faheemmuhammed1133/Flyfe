@@ -3,6 +3,7 @@
 import { createContext, useContext, useReducer, ReactNode } from 'react'
 
 export interface CartItem {
+  variant?: Record<string, any>;
   id: number
   name: string
   price: number

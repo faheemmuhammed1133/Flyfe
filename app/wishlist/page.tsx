@@ -43,7 +43,6 @@ export default function WishlistPage() {
         image: item.image,
         category: item.category,
         brand: item.brand,
-        quantity: 1,
         inStock: item.inStock
       })
       // Optionally remove from wishlist after adding to cart
